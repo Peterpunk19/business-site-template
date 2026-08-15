@@ -44,8 +44,8 @@ export function Location() {
               <p className="text-sm font-medium text-slate-500">Teléfono</p>
 
               <a
-                href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                className="mt-2 inline-block text-lg font-semibold text-slate-950 hover:text-slate-600"
+                href={`tel:${contact.phone.replace(/\D/g, "")}`}
+                className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
               >
                 {contact.phone}
               </a>
@@ -56,7 +56,7 @@ export function Location() {
                 href={location.googleMapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex w-fit rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700"
+                className="mt-8 inline-flex w-fit rounded-full bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
               >
                 Cómo llegar
               </a>

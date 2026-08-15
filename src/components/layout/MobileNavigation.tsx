@@ -20,7 +20,7 @@ export function MobileNavigation() {
         aria-expanded={open}
         aria-controls="mobile-navigation"
         aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
       >
         <span className="sr-only">Menú</span>
 
@@ -42,7 +42,7 @@ export function MobileNavigation() {
                 key={item.href}
                 href={item.href}
                 onClick={closeMenu}
-                className="border-b border-slate-100 py-4 font-medium text-slate-700 last:border-0"
+                className="border-b border-slate-100 py-4 font-medium text-slate-700 transition hover:text-brand-700 focus-visible:outline-none focus-visible:text-brand-700 last:border-0"
               >
                 {item.label}
               </Link>
@@ -51,7 +51,7 @@ export function MobileNavigation() {
             <Link
               href="#citas"
               onClick={closeMenu}
-              className="mt-5 rounded-full bg-slate-900 px-6 py-3 text-center font-semibold text-white"
+              className="mt-5 rounded-full bg-brand-700 px-6 py-3 text-center font-semibold text-white transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
             >
               Agendar cita
             </Link>

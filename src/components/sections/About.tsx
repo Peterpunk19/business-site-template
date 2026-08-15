@@ -15,7 +15,6 @@ export function About() {
                 src={businessConfig.professional.image ?? "/images/professional.webp"}
                 alt={businessConfig.professional.name}
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -49,16 +48,16 @@ export function About() {
               )}
 
               <div className="grid gap-4 pt-3 sm:grid-cols-2">
-                <div className="rounded-2xl bg-slate-50 p-5">
-                  <p className="font-semibold text-slate-900">Atención personalizada</p>
+                <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
+                  <p className="font-semibold text-brand-900">Atención personalizada</p>
 
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     Cada paciente recibe una valoración de acuerdo con sus necesidades.
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 p-5">
-                  <p className="font-semibold text-slate-900">Prevención y cuidado</p>
+                <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
+                  <p className="font-semibold text-brand-900">Prevención y cuidado</p>
 
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     Buscamos cuidar la salud dental mediante prevención y seguimiento.

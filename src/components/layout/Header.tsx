@@ -13,7 +13,7 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           <Link
             href="#inicio"
-            className="flex min-w-0 flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+            className="flex min-w-0 flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-600 focus-visible:ring-offset-2"
           >
             <span className="truncate text-lg font-bold text-slate-950 sm:text-xl">
               {businessConfig.name}
@@ -29,7 +29,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-sm text-sm font-medium text-slate-600 transition hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+                className="rounded-sm text-sm font-medium text-slate-600 transition hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
               >
                 {item.label}
               </Link>
@@ -39,7 +39,7 @@ export function Header() {
           <div className="hidden lg:block">
             <Link
               href="#citas"
-              className="rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+              className="rounded-full bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
             >
               Agendar cita
             </Link>

@@ -76,7 +76,7 @@ export function AppointmentForm() {
             name="phone"
             type="tel"
             required
-            inputMode="tel"
+            inputMode="numeric"
             autoComplete="tel"
             maxLength={10}
             pattern="[0-9]{10}"
@@ -238,7 +238,7 @@ export function AppointmentForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-full bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {pending ? "Enviando solicitud..." : "Solicitar cita"}
       </button>

@@ -29,7 +29,9 @@ export function Gallery() {
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                sizes={
+                  index === 0 ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"
+                }
                 className="object-cover transition duration-500 hover:scale-105"
               />
             </div>

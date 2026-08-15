@@ -17,9 +17,9 @@ export function ButtonLink({
   fullWidthOnMobile = false,
 }: ButtonLinkProps) {
   const variants = {
-    primary: "bg-slate-900 text-white hover:bg-slate-700",
+    primary: "bg-brand-700 text-white shadow-sm hover:bg-brand-800",
 
-    secondary: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
+    secondary: "border border-brand-200 bg-white text-brand-800 hover:bg-brand-50",
   };
 
   const width = fullWidthOnMobile ? "w-full sm:w-auto" : "";
@@ -33,6 +33,10 @@ export function ButtonLink({
   py-3
   font-semibold
   transition
+  focus-visible:outline-none
+  focus-visible:ring-2
+  focus-visible:ring-brand-600
+  focus-visible:ring-offset-2
   ${width}
   ${variants[variant]}
 `;

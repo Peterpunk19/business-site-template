@@ -8,7 +8,22 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <article className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+    <article
+      className="
+        group
+        overflow-hidden
+        rounded-3xl
+        border
+        border-slate-100
+        bg-white
+        shadow-sm
+        transition
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
+        hover:shadow-slate-200/60
+      "
+    >
       {service.image && (
         <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
           <Image
@@ -28,9 +43,20 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
         <a
           href="#citas"
-          className="mt-5 inline-flex text-sm font-semibold text-slate-900 hover:text-slate-600"
+          className="
+            mt-5
+            inline-flex
+            items-center
+            gap-2
+            text-sm
+            font-semibold
+            text-brand-700
+            transition
+            hover:text-brand-900
+          "
         >
-          Solicitar información →
+          Solicitar información
+          <span aria-hidden="true">→</span>
         </a>
       </div>
     </article>

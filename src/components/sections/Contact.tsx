@@ -58,7 +58,7 @@ export function Contact() {
                     href={social.facebook}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm font-semibold text-slate-700 hover:text-slate-950"
+                    className="text-sm font-semibold text-brand-700 transition hover:text-brand-900"
                   >
                     Facebook
                   </a>
@@ -69,7 +69,7 @@ export function Contact() {
                     href={social.instagram}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm font-semibold text-slate-700 hover:text-slate-950"
+                    className="text-sm font-semibold text-brand-700 transition hover:text-brand-900"
                   >
                     Instagram
                   </a>
@@ -80,7 +80,7 @@ export function Contact() {
                     href={social.tiktok}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm font-semibold text-slate-700 hover:text-slate-950"
+                    className="text-sm font-semibold text-brand-700 transition hover:text-brand-900"
                   >
                     TikTok
                   </a>
@@ -89,7 +89,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-slate-50 p-6 md:p-8">
+          <div className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-sm md:p-8">
             <ContactForm />
           </div>
         </div>

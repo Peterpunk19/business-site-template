@@ -43,7 +43,7 @@ export function ContactForm() {
             aria-invalid={Boolean(state.errors?.name)}
             aria-describedby={state.errors?.name ? "contact-name-error" : undefined}
             placeholder="Tu nombre"
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
           />
 
           {state.errors?.name && (
@@ -170,7 +170,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-full bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {pending ? "Enviando..." : "Enviar mensaje"}
       </button>

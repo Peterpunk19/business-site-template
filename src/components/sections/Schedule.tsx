@@ -4,7 +4,7 @@ import { businessConfig } from "@/config/business";
 
 export function Schedule() {
   return (
-    <section className="scroll-mt-24 bg-slate-50 py-16 md:py-24">
+    <section className="scroll-mt-24 bg-brand-50/50 py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionTitle
@@ -13,16 +13,17 @@ export function Schedule() {
             description="Consulta nuestros horarios de atención y solicita una cita en el horario que mejor se adapte a ti."
           />
 
-          <div className="overflow-hidden rounded-3xl bg-white shadow-sm">
+          <div className="overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-sm">
             {businessConfig.schedule.map((schedule, index) => (
               <div
                 key={schedule.label}
-                className={`flex items-center justify-between ${
-                  index !== businessConfig.schedule.length - 1 ? "border-b" : ""
+                className={`flex items-center justify-between gap-6 px-6 py-5 ${
+                  index !== businessConfig.schedule.length - 1 ? "border-b border-slate-100" : ""
                 }`}
               >
-                <span>{schedule.label}</span>
-                <span>
+                <span className="font-medium text-slate-700">{schedule.label}</span>
+
+                <span className="text-right font-semibold text-brand-700">
                   {schedule.opens}
                   {" - "}
                   {schedule.closes}
