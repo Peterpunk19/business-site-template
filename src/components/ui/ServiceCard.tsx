@@ -6,9 +6,7 @@ interface ServiceCardProps {
   service: BusinessService;
 }
 
-export function ServiceCard({
-                              service,
-                            }: ServiceCardProps) {
+export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
       {service.image && (
@@ -24,13 +22,9 @@ export function ServiceCard({
       )}
 
       <div className="p-6">
-        <h3 className="text-xl font-bold text-slate-950">
-          {service.name}
-        </h3>
+        <h3 className="text-xl font-bold text-slate-950">{service.name}</h3>
 
-        <p className="mt-3 leading-7 text-slate-600">
-          {service.description}
-        </p>
+        <p className="mt-3 leading-7 text-slate-600">{service.description}</p>
 
         <a
           href="#citas"

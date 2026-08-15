@@ -1,14 +1,4 @@
-import {
-  Html,
-  Head,
-  Preview,
-  Body,
-  Container,
-  Heading,
-  Text,
-  Hr,
-  Section,
-} from "react-email";
+import { Html, Head, Preview, Body, Container, Heading, Text, Hr, Section } from "react-email";
 
 interface AppointmentNotificationEmailProps {
   name: string;
@@ -21,71 +11,58 @@ interface AppointmentNotificationEmailProps {
 }
 
 export function AppointmentNotificationEmail({
-                                               name,
-                                               phone,
-                                               email,
-                                               serviceName,
-                                               preferredDate,
-                                               preferredTime,
-                                               message,
-                                             }: AppointmentNotificationEmailProps) {
+  name,
+  phone,
+  email,
+  serviceName,
+  preferredDate,
+  preferredTime,
+  message,
+}: AppointmentNotificationEmailProps) {
   return (
     <Html>
       <Head />
 
-      <Preview>
-        Nueva solicitud de cita de {name}
-      </Preview>
+      <Preview>Nueva solicitud de cita de {name}</Preview>
 
       <Body>
         <Container>
-          <Heading>
-            Nueva solicitud de cita
-          </Heading>
+          <Heading>Nueva solicitud de cita</Heading>
 
-          <Text>
-            Se recibió una nueva solicitud desde la página web.
-          </Text>
+          <Text>Se recibió una nueva solicitud desde la página web.</Text>
 
           <Hr />
 
           <Section>
             <Text>
-              <strong>Paciente:</strong>{" "}
-              {name}
+              <strong>Paciente:</strong> {name}
             </Text>
 
             <Text>
-              <strong>Teléfono:</strong>{" "}
-              {phone}
+              <strong>Teléfono:</strong> {phone}
             </Text>
 
             {email && (
               <Text>
-                <strong>Correo:</strong>{" "}
-                {email}
+                <strong>Correo:</strong> {email}
               </Text>
             )}
 
             <Text>
-              <strong>Servicio:</strong>{" "}
-              {serviceName}
+              <strong>Servicio:</strong> {serviceName}
             </Text>
 
             <Text>
-              <strong>Fecha:</strong>{" "}
-              {preferredDate}
+              <strong>Fecha:</strong> {preferredDate}
             </Text>
 
             <Text>
-              <strong>Hora:</strong>{" "}
-              {preferredTime}
+              <strong>Hora:</strong> {preferredTime}
             </Text>
 
             {message && (
               <Text>
-                <strong>Comentarios:</strong>{" "}
-                {message}
+                <strong>Comentarios:</strong> {message}
               </Text>
             )}
           </Section>

@@ -5,10 +5,7 @@ import { services } from "@/config/services";
 
 export function Services() {
   return (
-    <section
-      id="servicios"
-      className="bg-slate-50 py-16 md:py-24"
-    >
+    <section id="servicios" className="bg-slate-50 py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Nuestros servicios"
@@ -19,10 +16,7 @@ export function Services() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-            />
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </Container>

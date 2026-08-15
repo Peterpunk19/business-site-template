@@ -29,8 +29,7 @@ export const businessConfig = {
     city: "Tuxtla Gutiérrez",
     state: "Chiapas",
     postalCode: "29050",
-    googleMapsUrl:
-      "https://maps.app.goo.gl/mxb2UzRdMVWvruCb7",
+    googleMapsUrl: "https://maps.app.goo.gl/mxb2UzRdMVWvruCb7",
     latitude: 16.7507841,
     longitude: -93.1211064,
     googleMapsEmbedUrl:
@@ -40,13 +39,7 @@ export const businessConfig = {
     {
       label: "Lunes a viernes",
 
-      days: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-      ],
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
 
       opens: "09:00",
       closes: "19:00",
@@ -55,9 +48,7 @@ export const businessConfig = {
     {
       label: "Sábado",
 
-      days: [
-        "Saturday",
-      ],
+      days: ["Saturday"],
 
       opens: "09:00",
       closes: "14:00",
@@ -79,8 +70,7 @@ export const businessConfig = {
   },
 
   seo: {
-    title:
-      "Dentista en Tuxtla Gutiérrez | Consultorio Dental",
+    title: "Dentista en Tuxtla Gutiérrez | Consultorio Dental",
 
     description:
       "Consultorio dental en Tuxtla Gutiérrez, Chiapas. Atención odontológica profesional, limpieza dental, blanqueamiento, ortodoncia y valoración dental.",

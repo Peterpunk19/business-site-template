@@ -17,8 +17,7 @@ export async function createContactMessage(
   if (website) {
     return {
       success: true,
-      message:
-        "Tu mensaje fue enviado correctamente.",
+      message: "Tu mensaje fue enviado correctamente.",
     };
   }
 
@@ -30,47 +29,37 @@ export async function createContactMessage(
     message: formData.get("message"),
   };
 
-  const result =
-    contactSchema.safeParse(values);
+  const result = contactSchema.safeParse(values);
 
   if (!result.success) {
     return {
       success: false,
 
-      message:
-        "Revisa los campos del formulario.",
+      message: "Revisa los campos del formulario.",
 
-      errors:
-      result.error.flatten().fieldErrors,
+      errors: result.error.flatten().fieldErrors,
     };
   }
 
   try {
     await saveContactMessage({
-      businessSlug:
-      businessConfig.slug,
+      businessSlug: businessConfig.slug,
 
-      contact:
-      result.data,
+      contact: result.data,
     });
 
     return {
       success: true,
 
-      message:
-        "Tu mensaje fue enviado correctamente. Nos comunicaremos contigo lo antes posible.",
+      message: "Tu mensaje fue enviado correctamente. Nos comunicaremos contigo lo antes posible.",
     };
   } catch (error) {
-    console.error(
-      "Error creating contact message:",
-      error,
-    );
+    console.error("Error creating contact message:", error);
 
     return {
       success: false,
 
-      message:
-        "No pudimos enviar tu mensaje. Inténtalo nuevamente.",
+      message: "No pudimos enviar tu mensaje. Inténtalo nuevamente.",
     };
   }
 }

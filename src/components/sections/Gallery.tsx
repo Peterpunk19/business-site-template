@@ -6,10 +6,7 @@ import { gallery } from "@/config/gallery";
 
 export function Gallery() {
   return (
-    <section
-      id="galeria"
-      className="py-16 md:py-24"
-    >
+    <section id="galeria" className="py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Galería"
@@ -23,9 +20,7 @@ export function Gallery() {
             <div
               key={image.id}
               className={`relative overflow-hidden rounded-3xl bg-slate-100 ${
-                index === 0
-                  ? "aspect-[4/5] sm:row-span-2"
-                  : "aspect-square"
+                index === 0 ? "aspect-[4/5] sm:row-span-2" : "aspect-square"
               }`}
             >
               <Image

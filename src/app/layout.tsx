@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { businessConfig } from "@/config/business";
-import {BusinessJsonLd} from "@/components/seo/BusinessJsonLd";
+import { BusinessJsonLd } from "@/components/seo/BusinessJsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,36 +15,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    businessConfig.url,
-  ),
+  metadataBase: new URL(businessConfig.url),
 
   title: {
-    default:
-    businessConfig.seo.title,
+    default: businessConfig.seo.title,
 
-    template:
-      `%s | ${businessConfig.shortName}`,
+    template: `%s | ${businessConfig.shortName}`,
   },
 
-  description:
-  businessConfig.seo.description,
+  description: businessConfig.seo.description,
 
-  keywords:
-  businessConfig.seo.keywords,
+  keywords: businessConfig.seo.keywords,
 
   authors: [
     {
-      name:
-      businessConfig.professional.name,
+      name: businessConfig.professional.name,
     },
   ],
 
-  creator:
-  businessConfig.professional.name,
+  creator: businessConfig.professional.name,
 
-  publisher:
-  businessConfig.name,
+  publisher: businessConfig.name,
 
   alternates: {
     canonical: "/",
@@ -57,14 +48,11 @@ export const metadata: Metadata = {
 
     url: "/",
 
-    siteName:
-    businessConfig.name,
+    siteName: businessConfig.name,
 
-    title:
-    businessConfig.seo.title,
+    title: businessConfig.seo.title,
 
-    description:
-    businessConfig.seo.description,
+    description: businessConfig.seo.description,
 
     images: [
       {
@@ -72,8 +60,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
 
-        alt:
-        businessConfig.name,
+        alt: businessConfig.name,
       },
     ],
   },
@@ -81,15 +68,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title:
-    businessConfig.seo.title,
+    title: businessConfig.seo.title,
 
-    description:
-    businessConfig.seo.description,
+    description: businessConfig.seo.description,
 
-    images: [
-      "/twitter-image.jpg",
-    ],
+    images: ["/twitter-image.jpg"],
   },
 
   robots: {

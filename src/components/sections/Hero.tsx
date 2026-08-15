@@ -3,7 +3,7 @@ import Image from "next/image";
 import { businessConfig } from "@/config/business";
 import { Container } from "@/components/layout/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import {createWhatsAppUrl} from "@/lib/whatsapp";
+import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Hero() {
   const whatsappUrl = createWhatsAppUrl(
@@ -12,10 +12,7 @@ export function Hero() {
   );
 
   return (
-    <section
-      id="inicio"
-      className="overflow-hidden bg-slate-50 py-16 md:py-24"
-    >
+    <section id="inicio" className="overflow-hidden bg-slate-50 py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -32,15 +29,9 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <ButtonLink href="#citas">
-                Solicitar cita
-              </ButtonLink>
+              <ButtonLink href="#citas">Solicitar cita</ButtonLink>
 
-              <ButtonLink
-                href={whatsappUrl}
-                variant="secondary"
-                external
-              >
+              <ButtonLink href={whatsappUrl} variant="secondary" external>
                 WhatsApp
               </ButtonLink>
             </div>
@@ -57,10 +48,7 @@ export function Hero() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200">
               <Image
-                src={
-                  businessConfig.professional.image ??
-                  "/images/professional.webp"
-                }
+                src={businessConfig.professional.image ?? "/images/professional.webp"}
                 alt={businessConfig.professional.name}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"

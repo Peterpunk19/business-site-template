@@ -3,26 +3,18 @@ import "server-only";
 import { prisma } from "@/lib/prisma";
 
 import type { AppointmentInput } from "@/features/appointments/schemas/appointmentSchema";
-import {getBusinessIdBySlug} from "@/features/businesses/repositories/businessRepository";
+import { getBusinessIdBySlug } from "@/features/businesses/repositories/businessRepository";
 
 interface CreateAppointmentParams {
   businessSlug: string;
   appointment: AppointmentInput;
 }
 
-export async function saveAppointment({
-                                        businessSlug,
-                                        appointment,
-                                      }: CreateAppointmentParams) {
-  const businessId =
-    await getBusinessIdBySlug(
-      businessSlug,
-    );
+export async function saveAppointment({ businessSlug, appointment }: CreateAppointmentParams) {
+  const businessId = await getBusinessIdBySlug(businessSlug);
 
   if (!businessId) {
-    throw new Error(
-      `Business "${businessSlug}" could not be found.`,
-    );
+    throw new Error(`Business "${businessSlug}" could not be found.`);
   }
 
   return prisma.appointmentRequest.create({
@@ -35,9 +27,7 @@ export async function saveAppointment({
 
       serviceId: appointment.service,
 
-      preferredDate: new Date(
-        `${appointment.preferredDate}T00:00:00`,
-      ),
+      preferredDate: new Date(`${appointment.preferredDate}T00:00:00`),
 
       preferredTime: appointment.preferredTime,
 

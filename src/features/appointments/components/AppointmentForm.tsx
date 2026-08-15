@@ -18,10 +18,7 @@ export function toDateInputValue(date: Date) {
 }
 
 export function AppointmentForm() {
-  const [state, formAction, pending] = useActionState(
-    createAppointment,
-    initialState,
-  );
+  const [state, formAction, pending] = useActionState(createAppointment, initialState);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -37,33 +34,15 @@ export function AppointmentForm() {
   }, [state.success]);
 
   return (
-    <form
-      ref={formRef}
-      action={formAction}
-      className="space-y-6"
-    >
-      <div
-        className="hidden"
-        aria-hidden="true"
-      >
-        <label htmlFor="website">
-          Website
-        </label>
+    <form ref={formRef} action={formAction} className="space-y-6">
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
 
-        <input
-          id="website"
-          name="website"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-        />
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div>
-        <label
-          htmlFor="name"
-          className="mb-2 block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-700">
           Nombre
         </label>
 
@@ -74,20 +53,13 @@ export function AppointmentForm() {
           maxLength={100}
           required
           aria-invalid={Boolean(state.errors?.name)}
-          aria-describedby={
-            state.errors?.name
-              ? "name-error"
-              : undefined
-          }
+          aria-describedby={state.errors?.name ? "name-error" : undefined}
           placeholder="Tu nombre"
           className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
         />
 
         {state.errors?.name && (
-          <p
-            id="name-error"
-            className="mt-2 text-sm text-red-600"
-          >
+          <p id="name-error" className="mt-2 text-sm text-red-600">
             {state.errors.name[0]}
           </p>
         )}
@@ -95,10 +67,7 @@ export function AppointmentForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="phone"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-slate-700">
             Teléfono
           </label>
 
@@ -112,36 +81,23 @@ export function AppointmentForm() {
             maxLength={10}
             pattern="[0-9]{10}"
             aria-invalid={Boolean(state.errors?.phone)}
-            aria-describedby={
-              state.errors?.phone
-                ? "phone-error"
-                : undefined
-            }
+            aria-describedby={state.errors?.phone ? "phone-error" : undefined}
             placeholder="9610000000"
             onInput={(event) => {
-              event.currentTarget.value =
-                event.currentTarget.value
-                  .replace(/\D/g, "")
-                  .slice(0, 10);
+              event.currentTarget.value = event.currentTarget.value.replace(/\D/g, "").slice(0, 10);
             }}
             className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
           />
 
           {state.errors?.phone && (
-            <p
-              id="phone-error"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="phone-error" className="mt-2 text-sm text-red-600">
               {state.errors.phone[0]}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
             Correo
           </label>
 
@@ -150,20 +106,13 @@ export function AppointmentForm() {
             name="email"
             type="email"
             aria-invalid={Boolean(state.errors?.email)}
-            aria-describedby={
-              state.errors?.email
-                ? "email-error"
-                : undefined
-            }
+            aria-describedby={state.errors?.email ? "email-error" : undefined}
             placeholder="correo@ejemplo.com"
             className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
           />
 
           {state.errors?.email && (
-            <p
-              id="email-error"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="email-error" className="mt-2 text-sm text-red-600">
               {state.errors.email[0]}
             </p>
           )}
@@ -171,10 +120,7 @@ export function AppointmentForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="service"
-          className="mb-2 block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="service" className="mb-2 block text-sm font-medium text-slate-700">
           Servicio
         </label>
 
@@ -184,35 +130,22 @@ export function AppointmentForm() {
           required
           defaultValue=""
           aria-invalid={Boolean(state.errors?.service)}
-          aria-describedby={
-            state.errors?.service
-              ? "service-error"
-              : undefined
-          }
+          aria-describedby={state.errors?.service ? "service-error" : undefined}
           className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-slate-400"
         >
-          <option
-            value=""
-            disabled
-          >
+          <option value="" disabled>
             Selecciona un servicio
           </option>
 
           {services.map((service) => (
-            <option
-              key={service.id}
-              value={service.id}
-            >
+            <option key={service.id} value={service.id}>
               {service.name}
             </option>
           ))}
         </select>
 
         {state.errors?.service && (
-          <p
-            id="service-error"
-            className="mt-2 text-sm text-red-600"
-          >
+          <p id="service-error" className="mt-2 text-sm text-red-600">
             {state.errors.service[0]}
           </p>
         )}
@@ -220,10 +153,7 @@ export function AppointmentForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="preferredDate"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="preferredDate" className="mb-2 block text-sm font-medium text-slate-700">
             Fecha preferida
           </label>
 
@@ -235,29 +165,19 @@ export function AppointmentForm() {
             min={toDateInputValue(today)}
             max={toDateInputValue(maxDate)}
             aria-invalid={Boolean(state.errors?.preferredDate)}
-            aria-describedby={
-              state.errors?.preferredDate
-                ? "preferredDate-error"
-                : undefined
-            }
+            aria-describedby={state.errors?.preferredDate ? "preferredDate-error" : undefined}
             className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
           />
 
           {state.errors?.preferredDate && (
-            <p
-              id="preferredDate-error"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="preferredDate-error" className="mt-2 text-sm text-red-600">
               {state.errors.preferredDate[0]}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="preferredTime"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="preferredTime" className="mb-2 block text-sm font-medium text-slate-700">
             Horario preferido
           </label>
 
@@ -267,19 +187,12 @@ export function AppointmentForm() {
             type="time"
             required
             aria-invalid={Boolean(state.errors?.preferredTime)}
-            aria-describedby={
-              state.errors?.preferredTime
-                ? "preferredTime-error"
-                : undefined
-            }
+            aria-describedby={state.errors?.preferredTime ? "preferredTime-error" : undefined}
             className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
           />
 
           {state.errors?.preferredTime && (
-            <p
-              id="preferredTime-error"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="preferredTime-error" className="mt-2 text-sm text-red-600">
               {state.errors.preferredTime[0]}
             </p>
           )}
@@ -287,10 +200,7 @@ export function AppointmentForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="mb-2 block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">
           Comentarios
         </label>
 
@@ -299,21 +209,14 @@ export function AppointmentForm() {
           name="message"
           rows={4}
           aria-invalid={Boolean(state.errors?.message)}
-          aria-describedby={
-            state.errors?.message
-              ? "message-error"
-              : undefined
-          }
+          aria-describedby={state.errors?.message ? "message-error" : undefined}
           maxLength={500}
           placeholder="Cuéntanos brevemente cómo podemos ayudarte."
           className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
         />
 
         {state.errors?.message && (
-          <p
-            id="message-error"
-            className="mt-2 text-sm text-red-600"
-          >
+          <p id="message-error" className="mt-2 text-sm text-red-600">
             {state.errors.message[0]}
           </p>
         )}
@@ -324,9 +227,7 @@ export function AppointmentForm() {
           role="status"
           aria-live="polite"
           className={`rounded-xl p-4 text-sm ${
-            state.success
-              ? "bg-green-50 text-green-700"
-              : "bg-red-50 text-red-700"
+            state.success ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
           }`}
         >
           {state.message}
@@ -338,9 +239,7 @@ export function AppointmentForm() {
         disabled={pending}
         className="w-full rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {pending
-          ? "Enviando solicitud..."
-          : "Solicitar cita"}
+        {pending ? "Enviando solicitud..." : "Solicitar cita"}
       </button>
     </form>
   );

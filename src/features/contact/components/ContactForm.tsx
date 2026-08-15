@@ -10,10 +10,7 @@ const initialState: ContactFormState = {
 };
 
 export function ContactForm() {
-  const [state, formAction, pending] = useActionState(
-    createContactMessage,
-    initialState,
-  );
+  const [state, formAction, pending] = useActionState(createContactMessage, initialState);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -24,34 +21,16 @@ export function ContactForm() {
   }, [state.success]);
 
   return (
-    <form
-      ref={formRef}
-      action={formAction}
-      className="space-y-6"
-    >
-      <div
-        className="hidden"
-        aria-hidden="true"
-      >
-        <label htmlFor="contact-website">
-          Website
-        </label>
+    <form ref={formRef} action={formAction} className="space-y-6">
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="contact-website">Website</label>
 
-        <input
-          id="contact-website"
-          name="website"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-        />
+        <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="contact-name"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="contact-name" className="mb-2 block text-sm font-medium text-slate-700">
             Nombre
           </label>
 
@@ -62,30 +41,20 @@ export function ContactForm() {
             type="text"
             maxLength={100}
             aria-invalid={Boolean(state.errors?.name)}
-            aria-describedby={
-              state.errors?.name
-                ? "contact-name-error"
-                : undefined
-            }
+            aria-describedby={state.errors?.name ? "contact-name-error" : undefined}
             placeholder="Tu nombre"
             className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
           />
 
           {state.errors?.name && (
-            <p
-              id="contact-name-error"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="contact-name-error" className="mt-2 text-sm text-red-600">
               {state.errors.name[0]}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="contact-phone"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
+          <label htmlFor="contact-phone" className="mb-2 block text-sm font-medium text-slate-700">
             Teléfono
           </label>
 
@@ -99,26 +68,16 @@ export function ContactForm() {
             maxLength={10}
             pattern="[0-9]{10}"
             aria-invalid={Boolean(state.errors?.phone)}
-            aria-describedby={
-              state.errors?.phone
-                ? "contact-phone-error"
-                : undefined
-            }
+            aria-describedby={state.errors?.phone ? "contact-phone-error" : undefined}
             placeholder="9610000000"
             onInput={(event) => {
-              event.currentTarget.value =
-                event.currentTarget.value
-                  .replace(/\D/g, "")
-                  .slice(0, 10);
+              event.currentTarget.value = event.currentTarget.value.replace(/\D/g, "").slice(0, 10);
             }}
             className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
           />
 
           {state.errors?.phone && (
-            <p
-              id="contact-phone-error"
-              className="mt-2 text-sm text-red-600"
-            >
+            <p id="contact-phone-error" className="mt-2 text-sm text-red-600">
               {state.errors.phone[0]}
             </p>
           )}
@@ -126,10 +85,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="contact-email"
-          className="mb-2 block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-slate-700">
           Correo
         </label>
 
@@ -139,30 +95,20 @@ export function ContactForm() {
           type="email"
           required
           aria-invalid={Boolean(state.errors?.email)}
-          aria-describedby={
-            state.errors?.email
-              ? "contact-email-error"
-              : undefined
-          }
+          aria-describedby={state.errors?.email ? "contact-email-error" : undefined}
           placeholder="correo@ejemplo.com"
           className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
         />
 
         {state.errors?.email && (
-          <p
-            id="contact-email-error"
-            className="mt-2 text-sm text-red-600"
-          >
+          <p id="contact-email-error" className="mt-2 text-sm text-red-600">
             {state.errors.email[0]}
           </p>
         )}
       </div>
 
       <div>
-        <label
-          htmlFor="contact-subject"
-          className="mb-2 block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="contact-subject" className="mb-2 block text-sm font-medium text-slate-700">
           Asunto
         </label>
 
@@ -172,30 +118,20 @@ export function ContactForm() {
           type="text"
           maxLength={150}
           aria-invalid={Boolean(state.errors?.subject)}
-          aria-describedby={
-            state.errors?.subject
-              ? "contact-subject-error"
-              : undefined
-          }
+          aria-describedby={state.errors?.subject ? "contact-subject-error" : undefined}
           placeholder="¿En qué podemos ayudarte?"
           className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
         />
 
         {state.errors?.subject && (
-          <p
-            id="contact-subject-error"
-            className="mt-2 text-sm text-red-600"
-          >
+          <p id="contact-subject-error" className="mt-2 text-sm text-red-600">
             {state.errors.subject[0]}
           </p>
         )}
       </div>
 
       <div>
-        <label
-          htmlFor="contact-message"
-          className="mb-2 block text-sm font-medium text-slate-700"
-        >
+        <label htmlFor="contact-message" className="mb-2 block text-sm font-medium text-slate-700">
           Mensaje
         </label>
 
@@ -206,20 +142,13 @@ export function ContactForm() {
           maxLength={1000}
           rows={5}
           aria-invalid={Boolean(state.errors?.message)}
-          aria-describedby={
-            state.errors?.message
-              ? "contact-message-error"
-              : undefined
-          }
+          aria-describedby={state.errors?.message ? "contact-message-error" : undefined}
           placeholder="Escribe tu mensaje..."
           className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
         />
 
         {state.errors?.message && (
-          <p
-            id="contact-message-error"
-            className="mt-2 text-sm text-red-600"
-          >
+          <p id="contact-message-error" className="mt-2 text-sm text-red-600">
             {state.errors.message[0]}
           </p>
         )}
@@ -230,9 +159,7 @@ export function ContactForm() {
           role="status"
           aria-live="polite"
           className={`rounded-xl p-4 text-sm ${
-            state.success
-              ? "bg-green-50 text-green-700"
-              : "bg-red-50 text-red-700"
+            state.success ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
           }`}
         >
           {state.message}
@@ -244,9 +171,7 @@ export function ContactForm() {
         disabled={pending}
         className="w-full rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {pending
-          ? "Enviando..."
-          : "Enviar mensaje"}
+        {pending ? "Enviando..." : "Enviar mensaje"}
       </button>
     </form>
   );

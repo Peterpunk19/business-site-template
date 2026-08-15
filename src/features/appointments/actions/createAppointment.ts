@@ -9,13 +9,10 @@ import { appointmentSchema } from "@/features/appointments/schemas/appointmentSc
 
 import {
   sendAppointmentConfirmation,
-  sendAppointmentNotification
+  sendAppointmentNotification,
 } from "@/features/appointments/services/appointmentNotificationService";
 
-import {
-  formatDateForMexico,
-  formatTime,
-} from "@/lib/date";
+import { formatDateForMexico, formatTime } from "@/lib/date";
 
 import type { AppointmentFormState } from "@/features/appointments/types/appointment";
 
@@ -28,8 +25,7 @@ export async function createAppointment(
   if (website) {
     return {
       success: true,
-      message:
-        "Tu solicitud fue enviada correctamente.",
+      message: "Tu solicitud fue enviada correctamente.",
     };
   }
 
@@ -39,128 +35,88 @@ export async function createAppointment(
     email: formData.get("email"),
     service: formData.get("service"),
 
-    preferredDate:
-      formData.get("preferredDate"),
+    preferredDate: formData.get("preferredDate"),
 
-    preferredTime:
-      formData.get("preferredTime"),
+    preferredTime: formData.get("preferredTime"),
 
-    message:
-      formData.get("message"),
+    message: formData.get("message"),
   };
 
-  const result =
-    appointmentSchema.safeParse(values);
+  const result = appointmentSchema.safeParse(values);
 
   if (!result.success) {
     return {
       success: false,
 
-      message:
-        "Revisa los campos del formulario.",
+      message: "Revisa los campos del formulario.",
 
-      errors:
-      result.error.flatten().fieldErrors,
+      errors: result.error.flatten().fieldErrors,
     };
   }
 
-  const formattedDate =
-    formatDateForMexico(
-      result.data.preferredDate,
-    );
+  const formattedDate = formatDateForMexico(result.data.preferredDate);
 
-  const formattedTime =
-    formatTime(
-      result.data.preferredTime,
-    );
+  const formattedTime = formatTime(result.data.preferredTime);
 
-  const service = services.find(
-    (service) =>
-      service.id === result.data.service,
-  );
+  const service = services.find((service) => service.id === result.data.service);
 
   if (!service) {
     return {
       success: false,
-      message:
-        "El servicio seleccionado no es válido.",
+      message: "El servicio seleccionado no es válido.",
     };
   }
 
   try {
     await saveAppointment({
-      businessSlug:
-      businessConfig.slug,
+      businessSlug: businessConfig.slug,
 
-      appointment:
-      result.data,
+      appointment: result.data,
     });
   } catch (error) {
-    console.error(
-      "Error saving appointment:",
-      error,
-    );
+    console.error("Error saving appointment:", error);
 
     return {
       success: false,
-      message:
-        "No pudimos registrar tu solicitud. Inténtalo nuevamente.",
+      message: "No pudimos registrar tu solicitud. Inténtalo nuevamente.",
     };
   }
 
   try {
     await sendAppointmentNotification({
-      name:
-      result.data.name,
+      name: result.data.name,
 
-      phone:
-      result.data.phone,
+      phone: result.data.phone,
 
-      email:
-      result.data.email,
+      email: result.data.email,
 
-      serviceName:
-      service.name,
+      serviceName: service.name,
 
-      preferredDate:
-      formattedDate,
+      preferredDate: formattedDate,
 
-      preferredTime:
-      formattedTime,
+      preferredTime: formattedTime,
 
-      message:
-      result.data.message,
+      message: result.data.message,
     });
   } catch (error) {
-    console.error(
-      "Appointment saved but notification email failed:",
-      error,
-    );
+    console.error("Appointment saved but notification email failed:", error);
   }
 
   if (result.data.email) {
     try {
       await sendAppointmentConfirmation({
-        email:
-        result.data.email,
+        email: result.data.email,
 
-        name:
-        result.data.name,
+        name: result.data.name,
 
-        serviceName:
-        service.name,
+        serviceName: service.name,
 
-        preferredDate:
-        result.data.preferredDate,
+        preferredDate: result.data.preferredDate,
 
-        preferredTime:
-        result.data.preferredTime,
+        preferredTime: result.data.preferredTime,
       });
     } catch (error) {
-      console.error(
-        "Appointment confirmation email failed:",
-        error,
-      );
+      console.error("Appointment confirmation email failed:", error);
     }
   }
 

@@ -10,13 +10,9 @@ export function Header() {
       <Container>
         <div className="flex h-20 items-center justify-between">
           <Link href="#inicio" className="flex flex-col">
-            <span className="text-xl font-bold text-slate-900">
-              {businessConfig.name}
-            </span>
+            <span className="text-xl font-bold text-slate-900">{businessConfig.name}</span>
 
-            <span className="text-xs text-slate-500">
-              {businessConfig.professional.name}
-            </span>
+            <span className="text-xs text-slate-500">{businessConfig.professional.name}</span>
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">

@@ -9,6 +9,7 @@ export function BusinessJsonLd() {
     schedule,
     social,
     professional,
+    locale,
     seo,
     branding,
     structuredData,
@@ -31,9 +32,7 @@ export function BusinessJsonLd() {
 
     email: contact.email,
 
-    image: [
-      `${url}${professional.image ?? "/professional/doctor.webp"}`,
-    ],
+    image: [`${url}${professional.image ?? "/professional/doctor.webp"}`],
 
     ...(branding.logo && {
       logo: `${url}${branding.logo}`,
@@ -52,7 +51,7 @@ export function BusinessJsonLd() {
         postalCode: location.postalCode,
       }),
 
-      addressCountry: structuredData.country,
+      addressCountry: locale.country,
     },
 
     ...(location.latitude !== undefined &&
@@ -66,35 +65,20 @@ export function BusinessJsonLd() {
         },
       }),
 
-    openingHoursSpecification:
-      schedule.map((item) => ({
-        "@type":
-          "OpeningHoursSpecification",
+    openingHoursSpecification: schedule.map((item) => ({
+      "@type": "OpeningHoursSpecification",
 
-        dayOfWeek:
-        item.days,
+      dayOfWeek: item.days,
 
-        opens:
-        item.opens,
+      opens: item.opens,
 
-        closes:
-        item.closes,
-      })),
+      closes: item.closes,
+    })),
 
-    sameAs: [
-      social.facebook,
-      social.instagram,
-      social.tiktok,
-    ].filter(Boolean),
+    sameAs: [social.facebook, social.instagram, social.tiktok].filter(Boolean),
   };
 
-  const jsonLd =
-    JSON.stringify(
-      structuredDataObject,
-    ).replace(
-      /</g,
-      "\\u003c",
-    );
+  const jsonLd = JSON.stringify(structuredDataObject).replace(/</g, "\\u003c");
 
   return (
     <script

@@ -9,8 +9,8 @@ import { Schedule } from "@/components/sections/Schedule";
 import { Location } from "@/components/sections/Location";
 
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import {Appointment} from "@/components/sections/Appointment";
-import {Contact} from "@/components/sections/Contact";
+import { Appointment } from "@/components/sections/Appointment";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (

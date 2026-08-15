@@ -1,7 +1,4 @@
-export function createWhatsAppUrl(
-  phone: string,
-  message?: string,
-) {
+export function createWhatsAppUrl(phone: string, message?: string) {
   const cleanPhone = phone.replace(/\D/g, "");
 
   const baseUrl = `https://wa.me/${cleanPhone}`;

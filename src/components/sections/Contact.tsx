@@ -6,14 +6,10 @@ import { ContactForm } from "@/features/contact/components/ContactForm";
 import { businessConfig } from "@/config/business";
 
 export function Contact() {
-  const { contact, location, social } =
-    businessConfig;
+  const { contact, location, social } = businessConfig;
 
   return (
-    <section
-      id="contacto"
-      className="py-16 md:py-24"
-    >
+    <section id="contacto" className="py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -25,9 +21,7 @@ export function Contact() {
 
             <div className="mt-8 space-y-6">
               <div>
-                <p className="text-sm font-medium text-slate-500">
-                  Teléfono
-                </p>
+                <p className="text-sm font-medium text-slate-500">Teléfono</p>
 
                 <a
                   href={`tel:${contact.phone.replace(/\D/g, "")}`}
@@ -38,9 +32,7 @@ export function Contact() {
               </div>
 
               <div>
-                <p className="text-sm font-medium text-slate-500">
-                  Correo
-                </p>
+                <p className="text-sm font-medium text-slate-500">Correo</p>
 
                 <a
                   href={`mailto:${contact.email}`}
@@ -51,13 +43,9 @@ export function Contact() {
               </div>
 
               <div>
-                <p className="text-sm font-medium text-slate-500">
-                  Dirección
-                </p>
+                <p className="text-sm font-medium text-slate-500">Dirección</p>
 
-                <p className="mt-1 font-semibold text-slate-950">
-                  {location.address}
-                </p>
+                <p className="mt-1 font-semibold text-slate-950">{location.address}</p>
 
                 <p className="text-slate-600">
                   {location.city}, {location.state}

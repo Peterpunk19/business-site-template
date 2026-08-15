@@ -4,7 +4,7 @@ import { resend } from "@/lib/email/resend";
 import { businessConfig } from "@/config/business";
 
 import { AppointmentNotificationEmail } from "@/emails/AppointmentNotificationEmail";
-import {AppointmentReceivedEmail} from "@/emails/AppointmentReceivedEmail";
+import { AppointmentReceivedEmail } from "@/emails/AppointmentReceivedEmail";
 
 interface AppointmentNotificationParams {
   name: string;
@@ -16,47 +16,35 @@ interface AppointmentNotificationParams {
   message?: string;
 }
 
-export async function sendAppointmentNotification(
-  appointment: AppointmentNotificationParams,
-) {
+export async function sendAppointmentNotification(appointment: AppointmentNotificationParams) {
   const from = process.env.EMAIL_FROM;
 
   if (!from) {
-    throw new Error(
-      "Missing EMAIL_FROM environment variable.",
-    );
+    throw new Error("Missing EMAIL_FROM environment variable.");
   }
 
-  const { error } =
-    await resend.emails.send({
-      from,
+  const { error } = await resend.emails.send({
+    from,
 
-      to:
-      businessConfig.notifications.email,
+    to: businessConfig.notifications.email,
 
-      subject:
-        `Nueva solicitud de cita - ${appointment.name}`,
+    subject: `Nueva solicitud de cita - ${appointment.name}`,
 
-      react:
-        AppointmentNotificationEmail(
-          appointment,
-        ),
-    });
+    react: AppointmentNotificationEmail(appointment),
+  });
 
   if (error) {
-    throw new Error(
-      `Appointment notification could not be sent: ${error.message}`,
-    );
+    throw new Error(`Appointment notification could not be sent: ${error.message}`);
   }
 }
 
 export async function sendAppointmentConfirmation({
-                                                    email,
-                                                    name,
-                                                    serviceName,
-                                                    preferredDate,
-                                                    preferredTime,
-                                                  }: {
+  email,
+  name,
+  serviceName,
+  preferredDate,
+  preferredTime,
+}: {
   email: string;
   name: string;
   serviceName: string;
@@ -66,32 +54,25 @@ export async function sendAppointmentConfirmation({
   const from = process.env.EMAIL_FROM;
 
   if (!from) {
-    throw new Error(
-      "Missing EMAIL_FROM environment variable.",
-    );
+    throw new Error("Missing EMAIL_FROM environment variable.");
   }
 
-  const { error } =
-    await resend.emails.send({
-      from,
+  const { error } = await resend.emails.send({
+    from,
 
-      to: email,
+    to: email,
 
-      subject:
-        "Recibimos tu solicitud de cita",
+    subject: "Recibimos tu solicitud de cita",
 
-      react:
-        AppointmentReceivedEmail({
-          name,
-          serviceName,
-          preferredDate,
-          preferredTime,
-        }),
-    });
+    react: AppointmentReceivedEmail({
+      name,
+      serviceName,
+      preferredDate,
+      preferredTime,
+    }),
+  });
 
   if (error) {
-    throw new Error(
-      `Appointment confirmation could not be sent: ${error.message}`,
-    );
+    throw new Error(`Appointment confirmation could not be sent: ${error.message}`);
   }
 }

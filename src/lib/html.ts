@@ -1,6 +1,4 @@
-export function escapeHtml(
-  value: string,
-) {
+export function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")

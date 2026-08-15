@@ -5,16 +5,8 @@ interface SectionTitleProps {
   align?: "left" | "center";
 }
 
-export function SectionTitle({
-                               eyebrow,
-                               title,
-                               description,
-                               align = "left",
-                             }: SectionTitleProps) {
-  const alignment =
-    align === "center"
-      ? "mx-auto text-center"
-      : "";
+export function SectionTitle({ eyebrow, title, description, align = "left" }: SectionTitleProps) {
+  const alignment = align === "center" ? "mx-auto text-center" : "";
 
   return (
     <div className={`max-w-2xl ${alignment}`}>
@@ -24,15 +16,9 @@ export function SectionTitle({
         </span>
       )}
 
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-        {title}
-      </h2>
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">{title}</h2>
 
-      {description && (
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          {description}
-        </p>
-      )}
+      {description && <p className="mt-4 text-lg leading-8 text-slate-600">{description}</p>}
     </div>
   );
 }

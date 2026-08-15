@@ -6,10 +6,7 @@ export function Location() {
   const { location, contact } = businessConfig;
 
   return (
-    <section
-      id="ubicacion"
-      className="py-16 md:py-24"
-    >
+    <section id="ubicacion" className="py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Ubicación"
@@ -34,13 +31,9 @@ export function Location() {
 
           <div className="flex flex-col justify-center p-8 md:p-12">
             <div>
-              <p className="text-sm font-medium text-slate-500">
-                Dirección
-              </p>
+              <p className="text-sm font-medium text-slate-500">Dirección</p>
 
-              <p className="mt-2 text-lg font-semibold text-slate-950">
-                {location.address}
-              </p>
+              <p className="mt-2 text-lg font-semibold text-slate-950">{location.address}</p>
 
               <p className="mt-1 text-slate-600">
                 {location.city}, {location.state}
@@ -48,9 +41,7 @@ export function Location() {
             </div>
 
             <div className="mt-8">
-              <p className="text-sm font-medium text-slate-500">
-                Teléfono
-              </p>
+              <p className="text-sm font-medium text-slate-500">Teléfono</p>
 
               <a
                 href={`tel:${contact.phone.replace(/\s/g, "")}`}
