@@ -53,3 +53,11 @@ export function formatTime(value: string) {
     hour12: true,
   }).format(date);
 }
+
+export function formatDateObjectForMexico(date: Date) {
+  return new Intl.DateTimeFormat("es-MX", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}

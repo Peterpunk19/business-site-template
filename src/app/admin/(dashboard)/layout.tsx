@@ -2,6 +2,9 @@ import { redirect } from "next/navigation";
 
 import { auth } from "@/auth";
 
+import { AdminHeader } from "@/components/admin/AdminHeader";
+import { AdminSidebar } from "@/components/admin/AdminSidebar";
+
 export default async function AdminLayout({
   children,
 }: Readonly<{
@@ -17,5 +20,15 @@ export default async function AdminLayout({
     redirect("/");
   }
 
-  return <>{children}</>;
+  return (
+    <div className="min-h-screen bg-slate-50 lg:flex">
+      <AdminSidebar />
+
+      <div className="min-w-0 flex-1">
+        <AdminHeader userName={session.user.name} />
+
+        {children}
+      </div>
+    </div>
+  );
 }
