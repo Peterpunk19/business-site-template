@@ -1,6 +1,6 @@
-import { Container } from "@/components/layout/Container";
-import { SectionTitle } from "@/components/ui/SectionTitle";
-import { businessConfig } from "@/config/business";
+import {Container} from "@/components/layout/Container";
+import {SectionTitle} from "@/components/ui/SectionTitle";
+import {businessConfig} from "@/config/business";
 
 export function Schedule() {
   return (
@@ -14,24 +14,22 @@ export function Schedule() {
           />
 
           <div className="overflow-hidden rounded-3xl bg-white shadow-sm">
-            {businessConfig.schedule.map((schedule, index) => (
-              <div
-                key={`${schedule.days}-${schedule.hours}`}
-                className={`flex items-center justify-between gap-4 px-6 py-5 ${
-                  index !== businessConfig.schedule.length - 1
-                    ? "border-b border-slate-100"
-                    : ""
-                }`}
-              >
-                <span className="font-medium text-slate-700">
-                  {schedule.days}
-                </span>
-
-                <span className="font-semibold text-slate-950">
-                  {schedule.hours}
-                </span>
-              </div>
-            ))}
+            {businessConfig.schedule.map(
+              (schedule, index) => (
+                <div
+                  key={schedule.label}
+                  className={`flex items-center justify-between ${
+                    index !==
+                    businessConfig.schedule.length - 1
+                      ? "border-b"
+                      : ""
+                  }`}
+                >
+                  <span>{schedule.label}</span>
+                  <span>{schedule.opens}{" - "}{schedule.closes}</span>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </Container>

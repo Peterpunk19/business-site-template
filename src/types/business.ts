@@ -1,3 +1,7 @@
+export interface BusinessBranding {
+  logo?: string;
+}
+
 export interface BusinessProfessional {
   name: string;
   title: string;
@@ -16,13 +20,20 @@ export interface BusinessLocation {
   address: string;
   city: string;
   state: string;
+  postalCode: string;
   googleMapsUrl?: string;
+  latitude?: number;
+  longitude?: number;
   googleMapsEmbedUrl?: string;
 }
 
 export interface BusinessSchedule {
-  days: string;
-  hours: string;
+  label: string;
+
+  days: string[];
+
+  opens: string;
+  closes: string;
 }
 
 export interface BusinessSocial {
@@ -31,8 +42,15 @@ export interface BusinessSocial {
   tiktok?: string;
 }
 
+export interface BusinessSeo {
+  title: string;
+  description: string;
+  keywords: string[];
+}
+
 export interface BusinessConfig {
   slug: string;
+  url: string;
   name: string;
   shortName: string;
   description: string;
@@ -48,6 +66,14 @@ export interface BusinessConfig {
   social: BusinessSocial;
 
   notifications: BusinessNotifications;
+
+  branding: BusinessBranding;
+
+  seo: BusinessSeo;
+
+  structuredData: BusinessStructuredData;
+
+  locale: BusinessLocale;
 }
 
 export interface BusinessService {
@@ -59,4 +85,14 @@ export interface BusinessService {
 
 export interface BusinessNotifications {
   email: string;
+}
+
+export interface BusinessStructuredData {
+  type: string;
+}
+
+export interface BusinessLocale {
+  language: string;
+  openGraphLocale: string;
+  country: string;
 }

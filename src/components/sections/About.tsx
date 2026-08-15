@@ -17,7 +17,7 @@ export function About() {
               <Image
                 src={
                   businessConfig.professional.image ??
-                  "/images/doctor.webp"
+                  "/images/professional.webp"
                 }
                 alt={businessConfig.professional.name}
                 fill
