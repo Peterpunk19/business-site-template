@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+
+    container_name: business-site-app-dev
+
+    restart: unless-stopped
+
+    command: sh -c "npm install && npm run dev"
+
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: ${DATABASE_URL}
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      EMAIL_FROM: ${EMAIL_FROM}
+      AUTH_SECRET: ${AUTH_SECRET}
+
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  node_modules:

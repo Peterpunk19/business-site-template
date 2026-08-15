@@ -13,6 +13,15 @@ import {
 
 import { canTransitionAppointmentStatus } from "@/features/appointments/domain/appointmentStatus";
 
+import {
+  sendAppointmentCancelledEmail,
+  sendAppointmentConfirmedEmail,
+} from "@/features/appointments/services/appointmentStatusNotificationService";
+
+import { getServiceName } from "@/lib/services";
+
+import { formatDateObjectForMexico, formatTime } from "@/lib/date";
+
 const allowedStatuses = new Set<AppointmentStatus>([
   "PENDING",
   "CONFIRMED",
@@ -47,6 +56,32 @@ export async function updateAppointmentStatus(formData: FormData) {
   }
 
   await updateAppointmentStatusRepository(id, newStatus);
+
+  if (appointment.email) {
+    const notificationData = {
+      email: appointment.email,
+
+      name: appointment.name,
+
+      serviceName: getServiceName(appointment.serviceId),
+
+      date: formatDateObjectForMexico(appointment.preferredDate),
+
+      time: formatTime(appointment.preferredTime),
+    };
+
+    try {
+      if (newStatus === "CONFIRMED") {
+        await sendAppointmentConfirmedEmail(notificationData);
+      }
+
+      if (newStatus === "CANCELLED") {
+        await sendAppointmentCancelledEmail(notificationData);
+      }
+    } catch (error) {
+      console.error("Appointment status updated but notification email failed:", error);
+    }
+  }
 
   revalidatePath("/admin");
   revalidatePath("/admin/appointments");
