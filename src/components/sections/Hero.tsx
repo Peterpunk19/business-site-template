@@ -12,7 +12,10 @@ export function Hero() {
   );
 
   return (
-    <section id="inicio" className="overflow-hidden bg-slate-50 py-16 md:py-24">
+    <section
+      id="inicio"
+      className="scroll-mt-24 overflow-hidden bg-slate-50 py-12 sm:py-16 md:py-24"
+    >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -28,10 +31,12 @@ export function Hero() {
               {businessConfig.description}
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <ButtonLink href="#citas">Solicitar cita</ButtonLink>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <ButtonLink href="#citas" fullWidthOnMobile>
+                Solicitar cita
+              </ButtonLink>
 
-              <ButtonLink href={whatsappUrl} variant="secondary" external>
+              <ButtonLink href={whatsappUrl} variant="secondary" external fullWidthOnMobile>
                 WhatsApp
               </ButtonLink>
             </div>
@@ -48,7 +53,11 @@ export function Hero() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200">
               <Image
-                src={businessConfig.professional.image ?? "/images/professional.webp"}
+                src={
+                  businessConfig.branding.heroImage ??
+                  businessConfig.professional.image ??
+                  "/images/hero.webp"
+                }
                 alt={businessConfig.professional.name}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"

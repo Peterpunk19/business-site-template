@@ -97,6 +97,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main-content"
+          className="
+            fixed left-4 top-4 z-[100]
+            -translate-y-24
+            rounded-md
+            bg-slate-950
+            px-4 py-2
+            text-white
+            transition
+            focus:translate-y-0
+          "
+        >
+          Saltar al contenido principal
+        </a>
+
         <BusinessJsonLd />
 
         {children}

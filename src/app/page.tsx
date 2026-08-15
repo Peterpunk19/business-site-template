@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Header />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
         <Services />

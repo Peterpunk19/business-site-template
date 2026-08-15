@@ -6,7 +6,7 @@ import { businessConfig } from "@/config/business";
 
 export function About() {
   return (
-    <section id="nosotros" className="py-16 md:py-24">
+    <section id="nosotros" className="scroll-mt-24 py-16 md:py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="relative">

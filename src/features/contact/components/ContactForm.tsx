@@ -93,6 +93,7 @@ export function ContactForm() {
           id="contact-email"
           name="email"
           type="email"
+          autoComplete="email"
           required
           aria-invalid={Boolean(state.errors?.email)}
           aria-describedby={state.errors?.email ? "contact-email-error" : undefined}

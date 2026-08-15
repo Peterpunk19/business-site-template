@@ -76,7 +76,7 @@ export function AppointmentForm() {
             name="phone"
             type="tel"
             required
-            inputMode="numeric"
+            inputMode="tel"
             autoComplete="tel"
             maxLength={10}
             pattern="[0-9]{10}"
@@ -105,6 +105,7 @@ export function AppointmentForm() {
             id="email"
             name="email"
             type="email"
+            autoComplete="email"
             aria-invalid={Boolean(state.errors?.email)}
             aria-describedby={state.errors?.email ? "email-error" : undefined}
             placeholder="correo@ejemplo.com"

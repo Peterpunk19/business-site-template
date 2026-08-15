@@ -1,5 +1,6 @@
 export interface BusinessBranding {
   logo?: string;
+  heroImage?: string;
 }
 
 export interface BusinessProfessional {

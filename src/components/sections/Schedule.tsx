@@ -4,7 +4,7 @@ import { businessConfig } from "@/config/business";
 
 export function Schedule() {
   return (
-    <section className="bg-slate-50 py-16 md:py-24">
+    <section className="scroll-mt-24 bg-slate-50 py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionTitle

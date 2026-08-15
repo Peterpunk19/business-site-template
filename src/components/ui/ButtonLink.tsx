@@ -6,6 +6,7 @@ interface ButtonLinkProps {
   children: ReactNode;
   variant?: "primary" | "secondary";
   external?: boolean;
+  fullWidthOnMobile?: boolean;
 }
 
 export function ButtonLink({
@@ -13,6 +14,7 @@ export function ButtonLink({
   children,
   variant = "primary",
   external = false,
+  fullWidthOnMobile = false,
 }: ButtonLinkProps) {
   const variants = {
     primary: "bg-slate-900 text-white hover:bg-slate-700",
@@ -20,7 +22,20 @@ export function ButtonLink({
     secondary: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
   };
 
-  const className = `inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold transition ${variants[variant]}`;
+  const width = fullWidthOnMobile ? "w-full sm:w-auto" : "";
+
+  const className = `
+  inline-flex
+  items-center
+  justify-center
+  rounded-full
+  px-6
+  py-3
+  font-semibold
+  transition
+  ${width}
+  ${variants[variant]}
+`;
 
   if (external) {
     return (

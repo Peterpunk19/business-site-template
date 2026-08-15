@@ -5,7 +5,7 @@ import { businessConfig } from "@/config/business";
 
 export function Appointment() {
   return (
-    <section id="citas" className="bg-slate-50 py-16 md:py-24">
+    <section id="citas" className="scroll-mt-24 bg-slate-50 py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>

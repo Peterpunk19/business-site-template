@@ -67,6 +67,7 @@ export const businessConfig = {
 
   branding: {
     logo: "/images/logo.png",
+    heroImage: "/images/hero.webp",
   },
 
   seo: {

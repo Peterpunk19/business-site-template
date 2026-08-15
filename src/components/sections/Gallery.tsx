@@ -6,7 +6,7 @@ import { gallery } from "@/config/gallery";
 
 export function Gallery() {
   return (
-    <section id="galeria" className="py-16 md:py-24">
+    <section id="galeria" className="scroll-mt-24 py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Galería"
@@ -15,12 +15,14 @@ export function Gallery() {
           align="center"
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-12 lg:grid-cols-4">
           {gallery.map((image, index) => (
             <div
               key={image.id}
-              className={`relative overflow-hidden rounded-3xl bg-slate-100 ${
-                index === 0 ? "aspect-[4/5] sm:row-span-2" : "aspect-square"
+              className={`relative overflow-hidden rounded-2xl bg-slate-100 sm:rounded-3xl ${
+                index === 0
+                  ? "col-span-2 aspect-[16/10] lg:col-span-2 lg:row-span-2 lg:aspect-auto lg:min-h-[500px]"
+                  : "aspect-square"
               }`}
             >
               <Image

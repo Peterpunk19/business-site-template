@@ -6,7 +6,7 @@ export function Location() {
   const { location, contact } = businessConfig;
 
   return (
-    <section id="ubicacion" className="py-16 md:py-24">
+    <section id="ubicacion" className="scroll-mt-24 py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Ubicación"
@@ -16,15 +16,15 @@ export function Location() {
         />
 
         <div className="mt-12 grid overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm lg:grid-cols-2">
-          <div className="min-h-[420px] bg-slate-100">
+          <div className="min-h-[320px] bg-slate-100 sm:min-h-[400px]">
             <iframe
-              title="Ubicación del consultorio"
+              title={`Ubicación de ${businessConfig.name}`}
               src={location.googleMapsEmbedUrl}
               width="100%"
               height="100%"
               loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              className="min-h-[420px] border-0"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="min-h-[320px] border-0 sm:min-h-[400px]"
               allowFullScreen
             />
           </div>

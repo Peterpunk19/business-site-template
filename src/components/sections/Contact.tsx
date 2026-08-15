@@ -9,7 +9,7 @@ export function Contact() {
   const { contact, location, social } = businessConfig;
 
   return (
-    <section id="contacto" className="py-16 md:py-24">
+    <section id="contacto" className="scroll-mt-24 py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
