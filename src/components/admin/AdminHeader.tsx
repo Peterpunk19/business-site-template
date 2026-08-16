@@ -1,15 +1,21 @@
+import { AdminMobileNavigation } from "@/components/admin/AdminMobileNavigation";
+
 interface AdminHeaderProps {
   userName?: string | null;
 }
 
 export function AdminHeader({ userName }: AdminHeaderProps) {
   return (
-    <header className="border-b border-slate-200 bg-white px-4 py-4 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <div>
-          <p className="text-sm text-slate-500">Panel administrativo</p>
+    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white">
+      <div className="flex min-h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <div className="flex min-w-0 items-center gap-3">
+          <AdminMobileNavigation />
 
-          <p className="mt-1 font-semibold text-slate-950">{userName}</p>
+          <div className="min-w-0">
+            <p className="text-xs text-slate-500 sm:text-sm">Panel administrativo</p>
+
+            <p className="truncate font-semibold text-slate-950">{userName}</p>
+          </div>
         </div>
       </div>
     </header>

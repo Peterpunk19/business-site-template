@@ -13,14 +13,14 @@ export function MobileNavigation() {
   }
 
   return (
-    <div className="lg:hidden">
+    <div className="relative lg:hidden">
       <button
         type="button"
         onClick={() => setOpen((current) => !current)}
         aria-expanded={open}
         aria-controls="mobile-navigation"
         aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+        className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full border border-slate-200 transition active:bg-slate-100 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
       >
         <span className="sr-only">Menú</span>
 
@@ -34,7 +34,7 @@ export function MobileNavigation() {
       {open && (
         <div
           id="mobile-navigation"
-          className="absolute left-0 top-full w-full border-t border-slate-100 bg-white shadow-lg"
+          className="fixed left-0 right-0 top-20 z-50 border-t border-slate-100 bg-white shadow-lg"
         >
           <nav aria-label="Navegación móvil" className="mx-auto flex max-w-7xl flex-col px-4 py-6">
             {navigation.map((item) => (
@@ -42,7 +42,7 @@ export function MobileNavigation() {
                 key={item.href}
                 href={item.href}
                 onClick={closeMenu}
-                className="border-b border-slate-100 py-4 font-medium text-slate-700 transition hover:text-brand-700 focus-visible:outline-none focus-visible:text-brand-700 last:border-0"
+                className="border-b border-slate-100 py-4 font-medium text-slate-700 transition active:text-brand-700 hover:text-brand-700 focus-visible:outline-none focus-visible:text-brand-700 last:border-0"
               >
                 {item.label}
               </Link>
@@ -51,7 +51,7 @@ export function MobileNavigation() {
             <Link
               href="#citas"
               onClick={closeMenu}
-              className="mt-5 rounded-full bg-brand-700 px-6 py-3 text-center font-semibold text-white transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+              className="mt-5 rounded-full bg-brand-700 px-6 py-3 text-center font-semibold text-white transition active:bg-brand-800 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
             >
               Agendar cita
             </Link>

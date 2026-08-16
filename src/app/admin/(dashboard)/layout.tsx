@@ -24,10 +24,10 @@ export default async function AdminLayout({
     <div className="min-h-screen bg-slate-50 lg:flex">
       <AdminSidebar />
 
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex-1 lg:min-h-screen">
         <AdminHeader userName={session.user.name} />
 
-        {children}
+        <div className="min-w-0">{children}</div>
       </div>
     </div>
   );

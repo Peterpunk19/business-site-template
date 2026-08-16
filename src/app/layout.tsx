@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 
   title: {
     default: businessConfig.seo.title,
-
     template: `%s | ${businessConfig.shortName}`,
   },
 
@@ -37,21 +36,22 @@ export const metadata: Metadata = {
 
   publisher: businessConfig.name,
 
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+
   alternates: {
     canonical: "/",
   },
 
   openGraph: {
     type: "website",
-
     locale: businessConfig.locale.openGraphLocale,
-
     url: "/",
-
     siteName: businessConfig.name,
-
     title: businessConfig.seo.title,
-
     description: businessConfig.seo.description,
 
     images: [
@@ -59,7 +59,6 @@ export const metadata: Metadata = {
         url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
-
         alt: businessConfig.name,
       },
     ],
@@ -67,11 +66,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-
     title: businessConfig.seo.title,
-
     description: businessConfig.seo.description,
-
     images: ["/twitter-image.jpg"],
   },
 
@@ -82,7 +78,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
