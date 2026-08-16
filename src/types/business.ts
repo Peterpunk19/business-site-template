@@ -30,9 +30,7 @@ export interface BusinessLocation {
 
 export interface BusinessSchedule {
   label: string;
-
   days: string[];
-
   opens: string;
   closes: string;
 }
@@ -81,7 +79,20 @@ export interface BusinessService {
   id: string;
   name: string;
   description: string;
-  image?: string;
+
+  image: string;
+  imageAlt: string;
+
+  price?: number;
+  priceFrom?: number;
+  priceLabel?: string;
+
+  promotionalPrice?: number;
+  promotionLabel?: string;
+  promotionDescription?: string;
+  promotionValidUntil?: string;
+
+  featured?: boolean;
 }
 
 export interface BusinessNotifications {
