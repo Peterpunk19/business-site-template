@@ -67,9 +67,7 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-600">
               <span>✓ Atención personalizada</span>
-
               <span>✓ Consultorio profesional</span>
-
               <span>✓ Citas por WhatsApp</span>
             </div>
           </div>
@@ -85,27 +83,28 @@ export function Hero() {
                 alt={businessConfig.professional.name}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
-                loading="eager"
+                preload
                 className="object-cover"
               />
             </div>
+
             <div
               className="
-              absolute
-              -bottom-5
-              left-4
-              right-4
-              rounded-2xl
-              border
-              border-white/60
-              bg-white/95
-              p-4
-              shadow-lg
-              backdrop-blur
-              sm:left-6
-              sm:right-auto
-              sm:min-w-64
-            "
+                absolute
+                -bottom-5
+                left-4
+                right-4
+                rounded-2xl
+                border
+                border-white/60
+                bg-white/95
+                p-4
+                shadow-lg
+                backdrop-blur
+                sm:left-6
+                sm:right-auto
+                sm:min-w-64
+              "
             >
               <p className="font-semibold text-slate-950">{businessConfig.professional.name}</p>
 

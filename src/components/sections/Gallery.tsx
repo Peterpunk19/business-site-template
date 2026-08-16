@@ -6,7 +6,7 @@ import { gallery } from "@/config/gallery";
 
 export function Gallery() {
   return (
-    <section id="galeria" className="scroll-mt-24 py-16 md:py-24">
+    <section id="galeria" className="scroll-mt-20 py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Galería"
