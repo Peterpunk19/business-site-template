@@ -2,8 +2,11 @@ import { Container } from "@/components/layout/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { AppointmentForm } from "@/features/appointments/components/AppointmentForm";
 import { businessConfig } from "@/config/business";
+import { getAppointmentDateRange } from "@/lib/date";
 
 export function Appointment() {
+  const { minDate, maxDate } = getAppointmentDateRange();
+
   return (
     <section id="citas" className="scroll-mt-24 bg-slate-50 py-16 md:py-24">
       <Container>
@@ -32,7 +35,7 @@ export function Appointment() {
           </div>
 
           <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm md:p-8">
-            <AppointmentForm />
+            <AppointmentForm minDate={minDate} maxDate={maxDate} />
           </div>
         </div>
       </Container>

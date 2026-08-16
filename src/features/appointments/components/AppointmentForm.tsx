@@ -1,31 +1,25 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+
 import { createAppointment } from "@/features/appointments/actions/createAppointment";
 import type { AppointmentFormState } from "@/features/appointments/types/appointment";
+
 import { services } from "@/config/services";
 
 const initialState: AppointmentFormState = {
   success: false,
 };
 
-export function toDateInputValue(date: Date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
+interface AppointmentFormProps {
+  minDate: string;
+  maxDate: string;
 }
 
-export function AppointmentForm() {
+export function AppointmentForm({ minDate, maxDate }: AppointmentFormProps) {
   const [state, formAction, pending] = useActionState(createAppointment, initialState);
 
   const formRef = useRef<HTMLFormElement>(null);
-
-  const today = new Date();
-
-  const maxDate = new Date();
-  maxDate.setDate(maxDate.getDate() + 90);
 
   useEffect(() => {
     if (state.success) {
@@ -55,7 +49,7 @@ export function AppointmentForm() {
           aria-invalid={Boolean(state.errors?.name)}
           aria-describedby={state.errors?.name ? "name-error" : undefined}
           placeholder="Tu nombre"
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
         />
 
         {state.errors?.name && (
@@ -86,7 +80,7 @@ export function AppointmentForm() {
             onInput={(event) => {
               event.currentTarget.value = event.currentTarget.value.replace(/\D/g, "").slice(0, 10);
             }}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
           />
 
           {state.errors?.phone && (
@@ -109,7 +103,7 @@ export function AppointmentForm() {
             aria-invalid={Boolean(state.errors?.email)}
             aria-describedby={state.errors?.email ? "email-error" : undefined}
             placeholder="correo@ejemplo.com"
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
           />
 
           {state.errors?.email && (
@@ -132,7 +126,7 @@ export function AppointmentForm() {
           defaultValue=""
           aria-invalid={Boolean(state.errors?.service)}
           aria-describedby={state.errors?.service ? "service-error" : undefined}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-slate-400"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
         >
           <option value="" disabled>
             Selecciona un servicio
@@ -163,11 +157,11 @@ export function AppointmentForm() {
             name="preferredDate"
             type="date"
             required
-            min={toDateInputValue(today)}
-            max={toDateInputValue(maxDate)}
+            min={minDate}
+            max={maxDate}
             aria-invalid={Boolean(state.errors?.preferredDate)}
             aria-describedby={state.errors?.preferredDate ? "preferredDate-error" : undefined}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
           />
 
           {state.errors?.preferredDate && (
@@ -189,7 +183,7 @@ export function AppointmentForm() {
             required
             aria-invalid={Boolean(state.errors?.preferredTime)}
             aria-describedby={state.errors?.preferredTime ? "preferredTime-error" : undefined}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
           />
 
           {state.errors?.preferredTime && (
@@ -209,11 +203,11 @@ export function AppointmentForm() {
           id="message"
           name="message"
           rows={4}
+          maxLength={500}
           aria-invalid={Boolean(state.errors?.message)}
           aria-describedby={state.errors?.message ? "message-error" : undefined}
-          maxLength={500}
           placeholder="Cuéntanos brevemente cómo podemos ayudarte."
-          className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-slate-400"
+          className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
         />
 
         {state.errors?.message && (
