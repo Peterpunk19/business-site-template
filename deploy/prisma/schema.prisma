@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Business {
+  id   String @id @default(uuid())
+  slug String @unique
+  name String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  appointments   AppointmentRequest[]
+  ContactMessage ContactMessage[]
+
+  @@map("businesses")
+}
+
+model AppointmentRequest {
+  id String @id @default(uuid())
+
+  businessId String   @map("business_id")
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  name  String
+  phone String
+  email String?
+
+  serviceId String @map("service_id")
+
+  preferredDate DateTime @map("preferred_date") @db.Date
+  preferredTime String   @map("preferred_time")
+
+  message String?
+
+  status AppointmentStatus @default(PENDING)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([businessId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("appointment_requests")
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model ContactMessage {
+  id String @id @default(uuid())
+
+  businessId String   @map("business_id")
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name       String
+  phone      String?
+  email      String
+  subject    String?
+  message    String
+
+  status ContactMessageStatus @default(UNREAD)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([businessId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("contact_messages")
+}
+
+enum ContactMessageStatus {
+  UNREAD
+  READ
+  ARCHIVED
+}
+
+model User {
+  id String @id @default(uuid())
+
+  name         String
+  email        String @unique
+  passwordHash String @map("password_hash")
+
+  role UserRole @default(ADMIN)
+
+  isActive Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+}

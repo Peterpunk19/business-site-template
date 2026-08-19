@@ -17,6 +17,7 @@ export async function createContactMessage(
   if (website) {
     return {
       success: true,
+      tracked: false,
       message: "Tu mensaje fue enviado correctamente.",
     };
   }
@@ -50,7 +51,7 @@ export async function createContactMessage(
 
     return {
       success: true,
-
+      tracked: true,
       message: "Tu mensaje fue enviado correctamente. Nos comunicaremos contigo lo antes posible.",
     };
   } catch (error) {

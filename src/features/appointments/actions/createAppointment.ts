@@ -25,6 +25,7 @@ export async function createAppointment(
   if (website) {
     return {
       success: true,
+      tracked: false,
       message: "Tu solicitud fue enviada correctamente.",
     };
   }
@@ -47,9 +48,8 @@ export async function createAppointment(
   if (!result.success) {
     return {
       success: false,
-
+      tracked: false,
       message: "Revisa los campos del formulario.",
-
       errors: result.error.flatten().fieldErrors,
     };
   }
@@ -63,6 +63,7 @@ export async function createAppointment(
   if (!service) {
     return {
       success: false,
+      tracked: false,
       message: "El servicio seleccionado no es válido.",
     };
   }
@@ -78,6 +79,7 @@ export async function createAppointment(
 
     return {
       success: false,
+      tracked: false,
       message: "No pudimos registrar tu solicitud. Inténtalo nuevamente.",
     };
   }
@@ -122,7 +124,8 @@ export async function createAppointment(
 
   return {
     success: true,
-
+    tracked: true,
+    service: result.data.service,
     message:
       "Tu solicitud fue enviada correctamente. Nos comunicaremos contigo para confirmar la cita.",
   };

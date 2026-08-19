@@ -1,3 +1,5 @@
+"use client";
+
 import { Suspense } from "react";
 
 import { Container } from "@/components/layout/Container";
@@ -6,6 +8,7 @@ import { AppointmentForm } from "@/features/appointments/components/AppointmentF
 import { businessConfig } from "@/config/business";
 import { getAppointmentDateRange } from "@/lib/date";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
+import { trackEvent } from "@/lib/analytics";
 
 export function Appointment() {
   const { minDate, maxDate } = getAppointmentDateRange();
@@ -32,9 +35,15 @@ export function Appointment() {
               <p className="mt-2 text-sm leading-6 text-slate-600">
                 También puedes comunicarte directamente con nosotros.
               </p>
-
               <a
                 href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() =>
+                  trackEvent("whatsapp_click", {
+                    location: "appointment",
+                  })
+                }
                 className="mt-4 inline-block font-semibold text-brand-800 transition hover:text-brand-600"
               >
                 {businessConfig.contact.whatsapp}

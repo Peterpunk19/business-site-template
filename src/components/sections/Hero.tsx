@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 
 import { businessConfig } from "@/config/business";
 import { Container } from "@/components/layout/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
+import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
   const whatsappUrl = createWhatsAppUrl(
@@ -60,7 +63,17 @@ export function Hero() {
                 Solicitar cita
               </ButtonLink>
 
-              <ButtonLink href={whatsappUrl} variant="secondary" external fullWidthOnMobile>
+              <ButtonLink
+                href={whatsappUrl}
+                variant="secondary"
+                external
+                fullWidthOnMobile
+                onClick={() =>
+                  trackEvent("whatsapp_click", {
+                    location: "hero",
+                  })
+                }
+              >
                 WhatsApp
               </ButtonLink>
             </div>

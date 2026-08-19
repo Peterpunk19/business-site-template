@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "@/components/layout/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { SocialLinks } from "@/components/ui/SocialLinks";
@@ -5,6 +7,7 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 import { ContactForm } from "@/features/contact/components/ContactForm";
 
 import { businessConfig } from "@/config/business";
+import { trackEvent } from "@/lib/analytics";
 
 export function Contact() {
   const { contact, location, social } = businessConfig;
@@ -26,6 +29,11 @@ export function Contact() {
 
                 <a
                   href={`tel:${contact.phone.replace(/\D/g, "")}`}
+                  onClick={() =>
+                    trackEvent("phone_click", {
+                      location: "contact",
+                    })
+                  }
                   className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
                 >
                   {contact.phone}

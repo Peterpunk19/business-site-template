@@ -1,6 +1,9 @@
+"use client";
+
 import { Container } from "@/components/layout/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { businessConfig } from "@/config/business";
+import { trackEvent } from "@/lib/analytics";
 
 export function Location() {
   const { location, contact } = businessConfig;
@@ -45,6 +48,11 @@ export function Location() {
 
               <a
                 href={`tel:${contact.phone.replace(/\D/g, "")}`}
+                onClick={() =>
+                  trackEvent("phone_click", {
+                    location: "location",
+                  })
+                }
                 className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
               >
                 {contact.phone}
@@ -56,6 +64,11 @@ export function Location() {
                 href={location.googleMapsUrl}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  trackEvent("maps_click", {
+                    location: "location",
+                  })
+                }
                 className="mt-8 inline-flex w-fit rounded-full bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
               >
                 Cómo llegar

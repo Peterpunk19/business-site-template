@@ -6,9 +6,11 @@ import { useSearchParams } from "next/navigation";
 import { createAppointment } from "@/features/appointments/actions/createAppointment";
 import type { AppointmentFormState } from "@/features/appointments/types/appointment";
 import { services } from "@/config/services";
+import { trackEvent } from "@/lib/analytics";
 
 const initialState: AppointmentFormState = {
   success: false,
+  tracked: false,
 };
 
 interface AppointmentFormProps {
@@ -28,10 +30,17 @@ export function AppointmentForm({ minDate, maxDate }: AppointmentFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
+    if (state.success && state.tracked) {
+      trackEvent("appointment_submit", {
+        location: "appointment_form",
+        service: state.service,
+      });
+    }
+
     if (state.success) {
       formRef.current?.reset();
     }
-  }, [state.success]);
+  }, [state.success, state.tracked, state.service]);
 
   return (
     <>

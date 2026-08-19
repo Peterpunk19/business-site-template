@@ -4,6 +4,7 @@ import { useActionState, useEffect, useRef } from "react";
 
 import { createContactMessage } from "@/features/contact/actions/createContactMessage";
 import type { ContactFormState } from "@/features/contact/types/contact";
+import { trackEvent } from "@/lib/analytics";
 
 const initialState: ContactFormState = {
   success: false,
@@ -15,10 +16,16 @@ export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
+    if (state.success && state.tracked) {
+      trackEvent("contact_submit", {
+        location: "contact_form",
+      });
+    }
+
     if (state.success) {
       formRef.current?.reset();
     }
-  }, [state.success]);
+  }, [state.success, state.tracked]);
 
   return (
     <form ref={formRef} action={formAction} className="space-y-6">

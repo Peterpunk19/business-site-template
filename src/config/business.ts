@@ -97,4 +97,9 @@ export const businessConfig = {
   structuredData: {
     type: "Dentist",
   },
+
+  analytics: {
+    enabled: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
+    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID,
+  },
 } satisfies BusinessConfig;

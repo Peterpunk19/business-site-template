@@ -74,6 +74,8 @@ export interface BusinessConfig {
   structuredData: BusinessStructuredData;
 
   locale: BusinessLocale;
+
+  analytics: BusinessAnalytics;
 }
 
 export interface BusinessService {
@@ -108,4 +110,9 @@ export interface BusinessLocale {
   language: string;
   openGraphLocale: string;
   country: string;
+}
+
+export interface BusinessAnalytics {
+  enabled: boolean;
+  googleAnalyticsId?: string;
 }

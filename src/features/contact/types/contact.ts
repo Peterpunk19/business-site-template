@@ -1,6 +1,6 @@
 export interface ContactFormState {
   success: boolean;
-
+  tracked?: boolean;
   message?: string;
 
   errors?: {
