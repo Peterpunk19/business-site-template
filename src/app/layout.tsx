@@ -3,7 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { businessConfig } from "@/config/business";
 import { BusinessJsonLd } from "@/components/seo/BusinessJsonLd";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
+import { AnalyticsConsentProvider } from "@/components/analytics/AnalyticsConsentProvider";
+import { CookieConsentBanner } from "@/components/analytics/CookieConsentBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -111,11 +113,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <BusinessJsonLd />
 
-        {children}
+        <AnalyticsConsentProvider>
+          {children}
 
-        {businessConfig.analytics.enabled && businessConfig.analytics.googleAnalyticsId && (
-          <GoogleAnalytics gaId={businessConfig.analytics.googleAnalyticsId} />
-        )}
+          <CookieConsentBanner />
+          <AnalyticsProvider />
+        </AnalyticsConsentProvider>
       </body>
     </html>
   );

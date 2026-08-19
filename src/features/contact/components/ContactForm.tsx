@@ -174,6 +174,19 @@ export function ContactForm() {
         </div>
       )}
 
+      <p className="text-xs leading-5 text-slate-500">
+        Al enviar este formulario aceptas el tratamiento de tus datos conforme a nuestro{" "}
+        <a
+          href="/aviso-de-privacidad"
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium text-brand-700 underline-offset-4 hover:underline"
+        >
+          Aviso de Privacidad
+        </a>
+        .
+      </p>
+
       <button
         type="submit"
         disabled={pending}

@@ -238,7 +238,7 @@ export function AppointmentForm({ minDate, maxDate }: AppointmentFormProps) {
             maxLength={500}
             aria-invalid={Boolean(state.errors?.message)}
             aria-describedby={state.errors?.message ? "message-error" : undefined}
-            placeholder="Cuéntanos brevemente cómo podemos ayudarte."
+            placeholder="Comentarios adicionales sobre tu solicitud. Evita incluir información médica sensible."
             className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
           />
 
@@ -260,6 +260,19 @@ export function AppointmentForm({ minDate, maxDate }: AppointmentFormProps) {
             {state.message}
           </div>
         )}
+
+        <p className="text-xs leading-5 text-slate-500">
+          Al enviar este formulario aceptas el tratamiento de tus datos conforme a nuestro{" "}
+          <a
+            href="/aviso-de-privacidad"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-brand-700 underline-offset-4 hover:underline"
+          >
+            Aviso de Privacidad
+          </a>
+          .
+        </p>
 
         <button
           type="submit"

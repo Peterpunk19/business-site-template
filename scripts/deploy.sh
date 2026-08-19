@@ -98,6 +98,19 @@ rm -rf .next "$DEPLOY_DIR"
 # Build
 # ------------------------------------------------------------
 
+info "Cargando variables de producción"
+
+set -a
+source .env.production
+set +a
+
+if [[ "${NEXT_PUBLIC_ANALYTICS_ENABLED:-}" == "true" ]]; then
+  [[ -n "${NEXT_PUBLIC_GA_ID:-}" ]] || \
+    fail "NEXT_PUBLIC_ANALYTICS_ENABLED=true pero falta NEXT_PUBLIC_GA_ID"
+fi
+
+success "Variables de producción cargadas"
+
 info "Generando build de producción"
 
 npm run build
@@ -109,6 +122,14 @@ npm run build
   fail "No se encontró BUILD_ID en standalone."
 
 success "Build generado"
+
+if [[ "${NEXT_PUBLIC_ANALYTICS_ENABLED:-}" == "true" ]]; then
+  if ! grep -R -q "${NEXT_PUBLIC_GA_ID}" .next/static 2>/dev/null; then
+    fail "Google Analytics está habilitado pero el GA ID no apareció en .next/static"
+  fi
+
+  success "Google Analytics incluido en el bundle"
+fi
 
 # ------------------------------------------------------------
 # Preparar artefacto standalone
