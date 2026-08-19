@@ -1,10 +1,10 @@
 import { BusinessConfig } from "@/types/business";
 
 export const businessConfig = {
-  slug: "consultorio-dental",
-  url: "https://www.consultoriodental.com",
-  name: "Consultorio Dental",
-  shortName: "Dental",
+  slug: "dr-ortega-estetica-dental",
+  url: "https://drortegaesteticadental.com",
+  name: "Dr. Ortega Estética Dental",
+  shortName: "Estética Dental",
 
   description:
     "Atención odontológica profesional enfocada en el cuidado, prevención y bienestar de tu sonrisa.",
@@ -12,23 +12,24 @@ export const businessConfig = {
   professional: {
     name: "Dr. Salvador Ortega",
     title: "Cirujano Dentista",
-    license: "Cédula profesional XXXXXXX",
+    license: "CEU-10481267",
+    license2: "2407012002A00271",
     description:
       "Brindamos atención odontológica profesional, cercana y personalizada, enfocándonos en la prevención, diagnóstico y tratamiento de problemas dentales.",
     image: "/images/professional.webp",
   },
 
   contact: {
-    phone: "961 000 0000",
-    whatsapp: "529610000000",
-    email: "contacto@consultorio.com",
+    phone: "9614286042",
+    whatsapp: "9612177142",
+    email: "dr.ortega32@gmail.com",
   },
 
   location: {
-    address: "Dr Ortega Estética Dental",
+    address: "1er Piso, 468, entre 3a y 4a Sur, 2a Poniente sur, El Centro",
     city: "Tuxtla Gutiérrez",
     state: "Chiapas",
-    postalCode: "29050",
+    postalCode: "29000",
     googleMapsUrl: "https://maps.app.goo.gl/mxb2UzRdMVWvruCb7",
     latitude: 16.7507841,
     longitude: -93.1211064,
@@ -41,7 +42,7 @@ export const businessConfig = {
 
       days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
 
-      opens: "09:00",
+      opens: "10:00",
       closes: "19:00",
     },
 
@@ -50,15 +51,15 @@ export const businessConfig = {
 
       days: ["Saturday"],
 
-      opens: "09:00",
-      closes: "14:00",
+      opens: "10:00",
+      closes: "17:00",
     },
   ],
 
   social: {
-    facebook: "",
-    instagram: "",
-    tiktok: "",
+    facebook: "https://www.facebook.com/DrOrtegaEsteticaDental32",
+    instagram: "https://www.instagram.com/drortega_esteticadental",
+    tiktok: "https://tiktok.com/@...",
   },
 
   notifications: {
@@ -71,7 +72,7 @@ export const businessConfig = {
   },
 
   seo: {
-    title: "Dentista en Tuxtla Gutiérrez | Consultorio Dental",
+    title: "Dentista en Tuxtla Gutiérrez | Dr. Ortega Estética Dental",
 
     description:
       "Consultorio dental en Tuxtla Gutiérrez, Chiapas. Atención odontológica profesional, limpieza dental, blanqueamiento, ortodoncia y valoración dental.",

@@ -5,9 +5,15 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { AppointmentForm } from "@/features/appointments/components/AppointmentForm";
 import { businessConfig } from "@/config/business";
 import { getAppointmentDateRange } from "@/lib/date";
+import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Appointment() {
   const { minDate, maxDate } = getAppointmentDateRange();
+
+  const whatsappUrl = createWhatsAppUrl(
+    businessConfig.contact.whatsapp,
+    `Hola, quisiera solicitar información sobre ${businessConfig.name}.`,
+  );
 
   return (
     <section id="citas" className="scroll-mt-24 bg-slate-50 py-16 md:py-24">
@@ -28,10 +34,10 @@ export function Appointment() {
               </p>
 
               <a
-                href={`tel:${businessConfig.contact.phone.replace(/\D/g, "")}`}
+                href={whatsappUrl}
                 className="mt-4 inline-block font-semibold text-brand-800 transition hover:text-brand-600"
               >
-                {businessConfig.contact.phone}
+                {businessConfig.contact.whatsapp}
               </a>
             </div>
           </div>

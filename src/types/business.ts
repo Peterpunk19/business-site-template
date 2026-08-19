@@ -7,6 +7,7 @@ export interface BusinessProfessional {
   name: string;
   title: string;
   license?: string;
+  license2?: string;
   description: string;
   image?: string;
 }

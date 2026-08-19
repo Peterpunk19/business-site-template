@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 
 import { ContactForm } from "@/features/contact/components/ContactForm";
 
@@ -25,7 +26,7 @@ export function Contact() {
 
                 <a
                   href={`tel:${contact.phone.replace(/\D/g, "")}`}
-                  className="mt-1 block font-semibold text-slate-950"
+                  className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
                 >
                   {contact.phone}
                 </a>
@@ -36,7 +37,7 @@ export function Contact() {
 
                 <a
                   href={`mailto:${contact.email}`}
-                  className="mt-1 block font-semibold text-slate-950"
+                  className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
                 >
                   {contact.email}
                 </a>
@@ -52,39 +53,15 @@ export function Contact() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-2">
-                {social.facebook && (
-                  <a
-                    href={social.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-semibold text-brand-700 transition hover:text-brand-900"
-                  >
-                    Facebook
-                  </a>
-                )}
+              <div>
+                <p className="text-sm font-medium text-slate-500">Redes sociales</p>
 
-                {social.instagram && (
-                  <a
-                    href={social.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-semibold text-brand-700 transition hover:text-brand-900"
-                  >
-                    Instagram
-                  </a>
-                )}
-
-                {social.tiktok && (
-                  <a
-                    href={social.tiktok}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-semibold text-brand-700 transition hover:text-brand-900"
-                  >
-                    TikTok
-                  </a>
-                )}
+                <SocialLinks
+                  facebook={social.facebook}
+                  instagram={social.instagram}
+                  tiktok={social.tiktok}
+                  className="mt-3"
+                />
               </div>
             </div>
           </div>

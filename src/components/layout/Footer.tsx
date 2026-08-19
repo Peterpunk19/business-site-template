@@ -1,4 +1,6 @@
 import { Container } from "@/components/layout/Container";
+import { SocialLinks } from "@/components/ui/SocialLinks";
+
 import { businessConfig } from "@/config/business";
 
 export function Footer() {
@@ -14,6 +16,14 @@ export function Footer() {
             <p className="mt-3 max-w-sm text-sm leading-6 text-white/70">
               {businessConfig.description}
             </p>
+
+            <SocialLinks
+              facebook={businessConfig.social.facebook}
+              instagram={businessConfig.social.instagram}
+              tiktok={businessConfig.social.tiktok}
+              variant="dark"
+              className="mt-5"
+            />
           </div>
 
           <div>
@@ -21,6 +31,7 @@ export function Footer() {
 
             <div className="mt-4 space-y-2 text-sm text-white/70">
               <p>{businessConfig.contact.phone}</p>
+
               <p>{businessConfig.contact.email}</p>
             </div>
           </div>

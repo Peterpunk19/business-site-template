@@ -47,6 +47,16 @@ export function About() {
                 </div>
               )}
 
+              {businessConfig.professional.license2 && (
+                <div>
+                  <p className="text-sm font-medium text-slate-500">COFEPRIS</p>
+
+                  <p className="mt-1 text-lg font-semibold text-slate-900">
+                    {businessConfig.professional.license2}
+                  </p>
+                </div>
+              )}
+
               <div className="grid gap-4 pt-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
                   <p className="font-semibold text-brand-900">Atención personalizada</p>
