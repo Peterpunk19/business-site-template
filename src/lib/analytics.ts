@@ -1,3 +1,5 @@
+import { getAnalyticsConsent } from "@/lib/analytics-consent";
+
 type AnalyticsEventParams = Record<string, string | number | boolean | undefined>;
 
 export function trackEvent(eventName: string, params?: AnalyticsEventParams) {
@@ -6,6 +8,10 @@ export function trackEvent(eventName: string, params?: AnalyticsEventParams) {
   }
 
   if (typeof window === "undefined") {
+    return;
+  }
+
+  if (getAnalyticsConsent() !== "granted") {
     return;
   }
 
