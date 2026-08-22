@@ -8,9 +8,12 @@ import { MessageStatusBadge } from "@/components/admin/MessageStatusBadge";
 
 import { getServiceName } from "@/lib/services";
 import { formatDateObjectForMexico, formatTime } from "@/lib/date";
+import { getAnalyticsSummary } from "@/features/analytics/analytics.service";
+import { AnalyticsSummary } from "@/features/analytics/components/AnalyticsSummary";
 
 export default async function AdminPage() {
   const dashboard = await getDashboardSummary();
+  const analytics = await getAnalyticsSummary();
 
   return (
     <main className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
@@ -39,6 +42,10 @@ export default async function AdminPage() {
           />
 
           <StatCard label="Total de mensajes" value={dashboard.totalMessages} />
+        </div>
+
+        <div className="mt-10">
+          <AnalyticsSummary analytics={analytics} />
         </div>
 
         <div className="mt-6 grid gap-5 xl:mt-8 xl:grid-cols-2 xl:gap-8">
