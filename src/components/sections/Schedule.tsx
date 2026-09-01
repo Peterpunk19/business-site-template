@@ -4,7 +4,7 @@ import { businessConfig } from "@/config/business";
 
 export function Schedule() {
   return (
-    <section className="scroll-mt-24 bg-brand-50/50 py-16 md:py-24">
+    <section className="scroll-mt-24 bg-surface-accent py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionTitle
@@ -23,7 +23,7 @@ export function Schedule() {
               >
                 <span className="font-medium text-slate-700">{schedule.label}</span>
 
-                <span className="text-right font-semibold text-brand-700">
+                <span className="text-right font-semibold text-accent">
                   {schedule.opens}
                   {" - "}
                   {schedule.closes}

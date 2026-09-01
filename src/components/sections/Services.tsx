@@ -5,7 +5,7 @@ import { services } from "@/config/services";
 
 export function Services() {
   return (
-    <section id="servicios" className="scroll-mt-20 bg-slate-50 py-16 md:py-24">
+    <section id="servicios" className="scroll-mt-20 bg-surface-muted py-16 md:py-24">
       <Container>
         <SectionTitle
           eyebrow="Nuestros servicios"

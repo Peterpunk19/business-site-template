@@ -19,7 +19,7 @@ export function Appointment() {
   );
 
   return (
-    <section id="citas" className="scroll-mt-24 bg-slate-50 py-16 md:py-24">
+    <section id="citas" className="scroll-mt-24 bg-surface-muted py-16 md:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -29,12 +29,13 @@ export function Appointment() {
               description="Selecciona el servicio, fecha y horario que prefieras. Nos comunicaremos contigo para confirmar disponibilidad."
             />
 
-            <div className="mt-8 rounded-3xl border border-brand-100 bg-brand-50 p-6">
+            <div className="mt-8 rounded-3xl border border-brand-100 bg-surface-accent p-6">
               <p className="font-semibold text-slate-950">¿Prefieres WhatsApp?</p>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
                 También puedes comunicarte directamente con nosotros.
               </p>
+
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -44,7 +45,7 @@ export function Appointment() {
                     location: "appointment",
                   })
                 }
-                className="mt-4 inline-block font-semibold text-brand-800 transition hover:text-brand-600"
+                className="mt-4 inline-block font-semibold text-accent transition hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 {businessConfig.contact.whatsapp}
               </a>

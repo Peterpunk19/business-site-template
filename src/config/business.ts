@@ -5,6 +5,7 @@ export const businessConfig = {
   url: "https://drortegaesteticadental.com",
   name: "Dr. Ortega Estética Dental",
   shortName: "Estética Dental",
+  logo: "/images/logo-dr-salvador-ortega-dentista-tuxtla.webp",
 
   description:
     "Atención odontológica profesional enfocada en el cuidado, prevención y bienestar de tu sonrisa.",
@@ -16,7 +17,7 @@ export const businessConfig = {
     license2: "2407012002A00271",
     description:
       "Brindamos atención odontológica profesional, cercana y personalizada, enfocándonos en la prevención, diagnóstico y tratamiento de problemas dentales.",
-    image: "/images/professional.webp",
+    image: "/images/dr-salvador-ortega-dentista-tuxtla-professional.webp",
   },
 
   contact: {
@@ -63,19 +64,18 @@ export const businessConfig = {
   },
 
   notifications: {
-    email: "pedrod.beltran@gmail.com",
+    email: "dr.ortega32@gmail.com",
   },
 
   branding: {
-    logo: "/images/logo.png",
-    heroImage: "/images/hero.webp",
+    heroImage: "/images/dr-salvador-ortega-dentista-tuxtla-hero.webp",
   },
 
   seo: {
     title: "Dentista en Tuxtla Gutiérrez | Dr. Ortega Estética Dental",
 
     description:
-      "Consultorio dental en Tuxtla Gutiérrez, Chiapas. Atención odontológica profesional, limpieza dental, blanqueamiento, ortodoncia y valoración dental.",
+      "Consultorio dental en Tuxtla Gutiérrez, Chiapas. Atención odontológica profesional, limpieza dental, blanqueamiento y valoración dental.",
 
     keywords: [
       "dentista en Tuxtla Gutiérrez",
@@ -84,7 +84,6 @@ export const businessConfig = {
       "odontólogo Tuxtla Gutiérrez",
       "limpieza dental Tuxtla",
       "blanqueamiento dental Tuxtla",
-      "ortodoncia Tuxtla Gutiérrez",
     ],
   },
 

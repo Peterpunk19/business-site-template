@@ -3,9 +3,7 @@
 import { Container } from "@/components/layout/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { SocialLinks } from "@/components/ui/SocialLinks";
-
 import { ContactForm } from "@/features/contact/components/ContactForm";
-
 import { businessConfig } from "@/config/business";
 import { trackEvent } from "@/lib/analytics";
 
@@ -34,7 +32,7 @@ export function Contact() {
                       location: "contact",
                     })
                   }
-                  className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
+                  className="mt-1 block font-semibold text-slate-950 transition hover:text-accent"
                 >
                   {contact.phone}
                 </a>
@@ -45,7 +43,7 @@ export function Contact() {
 
                 <a
                   href={`mailto:${contact.email}`}
-                  className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
+                  className="mt-1 block font-semibold text-slate-950 transition hover:text-accent"
                 >
                   {contact.email}
                 </a>
@@ -74,7 +72,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-sm md:p-8">
+          <div className="rounded-3xl border border-slate-100 bg-surface-muted p-6 shadow-sm md:p-8">
             <ContactForm />
           </div>
         </div>

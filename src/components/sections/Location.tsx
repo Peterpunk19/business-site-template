@@ -19,7 +19,7 @@ export function Location() {
         />
 
         <div className="mt-12 grid overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm lg:grid-cols-2">
-          <div className="min-h-[320px] bg-slate-100 sm:min-h-[400px]">
+          <div className="min-h-[320px] bg-surface-muted sm:min-h-[400px]">
             <iframe
               title={`Ubicación de ${businessConfig.name}`}
               src={location.googleMapsEmbedUrl}
@@ -53,7 +53,7 @@ export function Location() {
                     location: "location",
                   })
                 }
-                className="mt-1 block font-semibold text-slate-950 transition hover:text-brand-700"
+                className="mt-1 block font-semibold text-slate-950 transition hover:text-accent"
               >
                 {contact.phone}
               </a>
@@ -69,7 +69,7 @@ export function Location() {
                     location: "location",
                   })
                 }
-                className="mt-8 inline-flex w-fit rounded-full bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                className="mt-8 inline-flex w-fit rounded-full bg-action px-6 py-3 font-semibold text-action-foreground shadow-sm transition hover:bg-action-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-action focus-visible:ring-offset-2"
               >
                 Cómo llegar
               </a>

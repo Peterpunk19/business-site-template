@@ -21,9 +21,22 @@ export function ButtonLink({
   onClick,
 }: ButtonLinkProps) {
   const variants = {
-    primary: "bg-brand-700 text-white shadow-sm hover:bg-brand-800",
+    primary: `
+      bg-action
+      text-action-foreground
+      shadow-sm
+      hover:bg-action-hover
+      focus-visible:ring-action
+    `,
 
-    secondary: "border border-brand-200 bg-white text-brand-800 hover:bg-brand-50",
+    secondary: `
+      border
+      border-brand-200
+      bg-white
+      text-accent
+      hover:bg-surface-accent
+      focus-visible:ring-accent
+    `,
   };
 
   const width = fullWidthOnMobile ? "w-full sm:w-auto" : "";
@@ -39,7 +52,6 @@ export function ButtonLink({
     transition
     focus-visible:outline-none
     focus-visible:ring-2
-    focus-visible:ring-brand-600
     focus-visible:ring-offset-2
     ${width}
     ${variants[variant]}

@@ -19,7 +19,7 @@ export function Gallery() {
           {gallery.map((image, index) => (
             <div
               key={image.id}
-              className={`relative overflow-hidden rounded-2xl bg-slate-100 sm:rounded-3xl ${
+              className={`relative overflow-hidden rounded-2xl bg-surface-muted sm:rounded-3xl ${
                 index === 0
                   ? "col-span-2 aspect-[16/10] lg:col-span-2 lg:row-span-2 lg:aspect-auto lg:min-h-[500px]"
                   : "aspect-square"

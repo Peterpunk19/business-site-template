@@ -10,9 +10,12 @@ export function About() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-100">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-muted">
               <Image
-                src={businessConfig.professional.image ?? "/images/professional.webp"}
+                src={
+                  businessConfig.professional.image ??
+                  "/images/dr-salvador-ortega-dentista-tuxtla-professional.webp"
+                }
                 alt={businessConfig.professional.name}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -58,16 +61,16 @@ export function About() {
               )}
 
               <div className="grid gap-4 pt-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
-                  <p className="font-semibold text-brand-900">Atención personalizada</p>
+                <div className="rounded-2xl border border-brand-100 bg-surface-accent p-5">
+                  <p className="font-semibold text-accent">Atención personalizada</p>
 
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     Cada paciente recibe una valoración de acuerdo con sus necesidades.
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
-                  <p className="font-semibold text-brand-900">Prevención y cuidado</p>
+                <div className="rounded-2xl border border-brand-100 bg-surface-accent p-5">
+                  <p className="font-semibold text-accent">Prevención y cuidado</p>
 
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     Buscamos cuidar la salud dental mediante prevención y seguimiento.

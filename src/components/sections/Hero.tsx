@@ -21,7 +21,7 @@ export function Hero() {
         scroll-mt-24
         overflow-hidden
         bg-gradient-to-b
-        from-brand-50
+        from-surface-accent
         to-white
         py-12
         sm:py-16
@@ -43,7 +43,7 @@ export function Hero() {
                 py-2
                 text-sm
                 font-medium
-                text-brand-700
+                text-accent
                 shadow-sm
               "
             >
@@ -51,7 +51,7 @@ export function Hero() {
             </span>
 
             <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              Cuida tu sonrisa con atención <span className="text-brand-700">profesional</span>
+              Cuida tu sonrisa con atención <span className="text-accent">profesional</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
@@ -86,7 +86,7 @@ export function Hero() {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl shadow-slate-200/60">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-surface-muted shadow-xl shadow-slate-200/60">
               <Image
                 src={
                   businessConfig.branding.heroImage ??

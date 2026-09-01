@@ -1,5 +1,4 @@
 export interface BusinessBranding {
-  logo?: string;
   heroImage?: string;
 }
 
@@ -54,6 +53,7 @@ export interface BusinessConfig {
   name: string;
   shortName: string;
   description: string;
+  logo?: string;
 
   professional: BusinessProfessional;
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/Container";
 import { MobileNavigation } from "@/components/layout/MobileNavigation";
+import Image from "next/image";
 
 import { businessConfig } from "@/config/business";
 import { navigation } from "@/config/navigation";
@@ -13,15 +14,41 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           <Link
             href="#inicio"
-            className="flex min-w-0 flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-600 focus-visible:ring-offset-2"
+            aria-label={`Ir al inicio - ${businessConfig.name}`}
+            className="
+              flex
+              min-w-0
+              shrink-0
+              items-center
+              rounded-md
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-brand-500
+              focus-visible:ring-offset-2
+            "
           >
-            <span className="truncate text-lg font-bold text-slate-950 sm:text-xl">
-              {businessConfig.name}
-            </span>
+            {businessConfig.logo ? (
+              <div className="relative h-12 w-48 sm:h-14 sm:w-60">
+                <Image
+                  src={businessConfig.logo}
+                  alt={businessConfig.name}
+                  fill
+                  sizes="(max-width: 640px) 192px, 240px"
+                  className="object-contain object-left"
+                  priority
+                />
+              </div>
+            ) : (
+              <div className="flex min-w-0 flex-col">
+                <span className="truncate text-lg font-bold text-slate-950 sm:text-xl">
+                  {businessConfig.name}
+                </span>
 
-            <span className="truncate text-xs text-slate-500">
-              {businessConfig.professional.name}
-            </span>
+                <span className="truncate text-xs text-slate-500">
+                  {businessConfig.professional.name}
+                </span>
+              </div>
+            )}
           </Link>
 
           <nav aria-label="Navegación principal" className="hidden items-center gap-7 lg:flex">

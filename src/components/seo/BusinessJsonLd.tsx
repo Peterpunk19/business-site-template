@@ -11,7 +11,6 @@ export function BusinessJsonLd() {
     professional,
     locale,
     seo,
-    branding,
     structuredData,
   } = businessConfig;
 
@@ -32,10 +31,12 @@ export function BusinessJsonLd() {
 
     email: contact.email,
 
-    image: [`${url}${professional.image ?? "/professional/doctor.webp"}`],
+    image: [
+      `${url}${professional.image ?? "/images/dr-salvador-ortega-dentista-tuxtla-professional.webp"}`,
+    ],
 
-    ...(branding.logo && {
-      logo: `${url}${branding.logo}`,
+    ...(businessConfig.logo && {
+      logo: `${url}${businessConfig.logo}`,
     }),
 
     address: {

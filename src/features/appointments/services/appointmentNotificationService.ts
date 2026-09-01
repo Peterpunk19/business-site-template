@@ -32,6 +32,9 @@ export async function sendAppointmentNotification(appointment: AppointmentNotifi
   const { error } = await resend.emails.send({
     from: getFromAddress(),
     to: businessConfig.notifications.email,
+    ...(appointment.email && {
+      replyTo: appointment.email,
+    }),
     subject: `Nueva solicitud de cita - ${appointment.name}`,
     react: AppointmentNotificationEmail(appointment),
   });

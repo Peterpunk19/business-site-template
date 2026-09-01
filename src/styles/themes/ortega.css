@@ -1,0 +1,26 @@
+@theme {
+  --color-brand-50: #fffbeb;
+  --color-brand-100: #fef3c7;
+  --color-brand-200: #fde68a;
+  --color-brand-300: #fcd34d;
+  --color-brand-400: #fbbf24;
+  --color-brand-500: #e8af12;
+  --color-brand-600: #ca8a04;
+  --color-brand-700: #a16207;
+  --color-brand-800: #854d0e;
+  --color-brand-900: #713f12;
+  --color-brand-950: #1a1612;
+
+  /* Semantic */
+  --color-action: #e8af12;
+  --color-action-hover: #fbbf24;
+  --color-action-foreground: #17120a;
+
+  --color-accent: #a16207;
+  --color-accent-hover: #854d0e;
+
+  --color-surface-accent: #fffbeb;
+  --color-surface-muted: #faf9f6;
+
+  --color-brand-deep: #1a1612;
+}

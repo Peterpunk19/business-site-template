@@ -48,7 +48,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
       `}
     >
       {service.image && (
-        <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-surface-muted">
           <Image
             src={service.image}
             alt={service.imageAlt || service.name}
@@ -68,7 +68,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
           {hasPromotion && (
             <div className="absolute left-4 top-4">
-              <span className="inline-flex rounded-full bg-brand-700 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-sm">
+              <span className="inline-flex rounded-full bg-action px-4 py-2 text-xs font-bold uppercase tracking-wide text-action-foreground shadow-sm">
                 {service.promotionLabel ?? "Promoción"}
               </span>
             </div>
@@ -82,21 +82,21 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <p className="mt-3 leading-7 text-slate-600">{service.description}</p>
 
         {hasPromotion && (
-          <div className="mt-5 rounded-2xl border border-brand-100 bg-brand-50/70 p-4">
+          <div className="mt-5 rounded-2xl border border-brand-100 bg-surface-accent p-4">
             {service.price !== undefined && service.promotionalPrice !== undefined && (
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <span className="text-sm text-slate-500 line-through">
                   {formatCurrency(service.price)}
                 </span>
 
-                <span className="text-2xl font-bold text-brand-800">
+                <span className="text-2xl font-bold text-accent">
                   {formatCurrency(service.promotionalPrice)}
                 </span>
               </div>
             )}
 
             {service.price === undefined && service.promotionalPrice !== undefined && (
-              <p className="text-2xl font-bold text-brand-800">
+              <p className="text-2xl font-bold text-accent">
                 {formatCurrency(service.promotionalPrice)}
               </p>
             )}
@@ -108,7 +108,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             )}
 
             {service.promotionValidUntil && (
-              <p className="mt-2 text-xs font-medium text-brand-800">
+              <p className="mt-2 text-xs font-medium text-accent">
                 Válida hasta el {formatPromotionDate(service.promotionValidUntil)}
               </p>
             )}
@@ -124,12 +124,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
             gap-2
             text-sm
             font-semibold
-            text-brand-700
+            text-accent
             transition
-            hover:text-brand-900
+            hover:text-accent-hover
             focus-visible:outline-none
             focus-visible:ring-2
-            focus-visible:ring-brand-600
+            focus-visible:ring-accent
             focus-visible:ring-offset-2
           "
         >

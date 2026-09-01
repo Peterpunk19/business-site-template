@@ -11,7 +11,7 @@ export function SectionTitle({ eyebrow, title, description, align = "left" }: Se
   return (
     <div className={`max-w-2xl ${alignment}`}>
       {eyebrow && (
-        <span className="text-sm font-semibold uppercase tracking-wider text-brand-700">
+        <span className="text-sm font-semibold uppercase tracking-wider text-accent">
           {eyebrow}
         </span>
       )}

@@ -1,0 +1,32 @@
+@theme {
+  /* Amarillo */
+  --color-brand-50: #fffbea;
+  --color-brand-100: #fff3bf;
+  --color-brand-200: #ffe47a;
+  --color-brand-300: #ffd43b;
+  --color-brand-400: #ffc21a;
+  --color-brand-500: #f5b400;
+  --color-brand-600: #d99d00;
+  --color-brand-700: #aa7600;
+  --color-brand-800: #754f00;
+  --color-brand-900: #422d00;
+  --color-brand-950: #0b0b0b;
+
+  /* Semantic */
+  --color-action: #f5b400;
+  --color-action-hover: #ffc21a;
+  --color-action-foreground: #090909;
+
+  --color-accent: #8a5e00;
+  --color-accent-hover: #754f00;
+
+  --color-surface-accent: #fffbea;
+  --color-surface-muted: #faf9f6;
+
+  --color-brand-deep: #0b0b0b;
+
+  /* Extras */
+  --color-ortega-black: #090909;
+  --color-ortega-charcoal: #171717;
+  --color-ortega-warm-white: #faf9f6;
+}

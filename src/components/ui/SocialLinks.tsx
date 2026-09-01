@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 interface SocialLinksProps {
   facebook?: string;
@@ -11,7 +11,6 @@ interface SocialLinksProps {
 export function SocialLinks({
   facebook,
   instagram,
-  tiktok,
   variant = "light",
   className = "",
 }: SocialLinksProps) {
@@ -25,11 +24,6 @@ export function SocialLinks({
       label: "Instagram",
       href: instagram,
       icon: FaInstagram,
-    },
-    {
-      label: "TikTok",
-      href: tiktok,
-      icon: FaTiktok,
     },
   ].filter(
     (
@@ -47,8 +41,24 @@ export function SocialLinks({
 
   const styles =
     variant === "dark"
-      ? "border-white/20 text-white/80 hover:border-white/40 hover:bg-white/10 hover:text-white focus-visible:ring-white focus-visible:ring-offset-brand-950"
-      : "border-slate-200 text-slate-600 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 focus-visible:ring-brand-600 focus-visible:ring-offset-white";
+      ? `
+          border-white/20
+          text-white/80
+          hover:border-white/40
+          hover:bg-white/10
+          hover:text-white
+          focus-visible:ring-white
+          focus-visible:ring-offset-brand-950
+        `
+      : `
+          border-slate-200
+          text-slate-600
+          hover:border-brand-200
+          hover:bg-surface-accent
+          hover:text-accent
+          focus-visible:ring-accent
+          focus-visible:ring-offset-white
+        `;
 
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
